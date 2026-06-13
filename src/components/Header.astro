@@ -1,0 +1,121 @@
+<header
+    id="main-header"
+    class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-lg border-b border-black/6 transition-all duration-300"
+>
+    <div
+        id="header-inner"
+        class="max-w-360 mx-auto px-8 h-20 flex items-center justify-between transition-all duration-300"
+    >
+        <!-- Logo -->
+        <a href="#" class="flex items-center shrink-0">
+            <img
+                id="header-logo"
+                src="/logo.png"
+                alt="Sistemas Virtuales"
+                class="h-16 max-w-56 w-auto object-contain object-left transition-all duration-300"
+            />
+        </a>
+
+        <!-- Nav -->
+        <nav class="hidden md:flex items-center gap-10">
+            <a href="#" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link">Servicios</a>
+            <a href="#" class="nav-link">Nosotros</a>
+            <a href="#" class="nav-link">Planes</a>
+        </nav>
+
+        <!-- CTA -->
+        <a
+            href="#"
+            id="cta-btn"
+            class="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-br from-blue-700 to-blue-500 text-white text-sm font-semibold rounded-full shadow-[0_4px_14px_rgba(29,78,216,0.35)] hover:shadow-[0_8px_24px_rgba(29,78,216,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap"
+        >
+            <span>Solicitar Demo</span>
+            <svg
+                class="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+    </div>
+</header>
+
+<style>
+    .nav-link {
+        position: relative;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #374151;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        padding-bottom: 4px;
+        transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+        border-radius: 9999px;
+        transition:
+            width 0.28s ease,
+            left 0.28s ease;
+    }
+
+    .nav-link:hover {
+        color: #1d4ed8;
+    }
+
+    .nav-link:hover::after {
+        left: 0;
+        width: 100%;
+    }
+</style>
+
+<script>
+    const header = document.getElementById("main-header");
+    const inner = document.getElementById("header-inner");
+    const logo = document.getElementById("header-logo");
+    const cta = document.getElementById("cta-btn");
+
+    function onScroll() {
+        const scrolled = window.scrollY > 20;
+
+        // Header bg
+        header?.classList.toggle("bg-white/85", !scrolled);
+        header?.classList.toggle("bg-white/96", scrolled);
+        header?.classList.toggle(
+            "shadow-[0_4px_24px_rgba(0,0,0,0.08)]",
+            scrolled,
+        );
+
+        // Height
+        inner?.classList.toggle("h-20", !scrolled);
+        inner?.classList.toggle("h-14", scrolled);
+
+        // Logo size
+        logo?.classList.toggle("h-16", !scrolled);
+        logo?.classList.toggle("h-10", scrolled);
+
+        // CTA size
+        cta?.classList.toggle("px-6", !scrolled);
+        cta?.classList.toggle("py-2.5", !scrolled);
+        cta?.classList.toggle("px-4", scrolled);
+        cta?.classList.toggle("py-1.5", scrolled);
+        cta?.classList.toggle("text-sm", !scrolled);
+        cta?.classList.toggle("text-xs", scrolled);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+</script>

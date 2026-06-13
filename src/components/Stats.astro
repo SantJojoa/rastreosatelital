@@ -1,0 +1,113 @@
+---
+import { stats } from "../data/stats";
+
+const icons: Record<string, string> = {
+    groups: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>`,
+    verified_user: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
+    speed: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
+    support_agent: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>`,
+};
+
+// Parse each stat value into: numeric part + suffix
+const parsed = stats.map(s => {
+    const match = s.value.match(/^([<]?\s*)([\d,.]+)(.*)$/);
+    return {
+        ...s,
+        prefix: match ? match[1] : "",
+        number: match ? parseFloat(match[2].replace(",", "")) : null,
+        suffix: match ? match[3] : s.value,
+        raw: s.value,
+    };
+});
+---
+
+<section class="py-24 bg-gradient-to-b from-white to-slate-50">
+    <div class="container-custom">
+        <div class="text-center mb-16">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold tracking-wide mb-4">
+                Números que hablan
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Resultados que <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">inspiran confianza</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {parsed.map((item, idx) => (
+                <article class="group relative bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center">
+                    <div class="absolute inset-0 bg-blue-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-blue-600 flex items-center justify-center text-white">
+                            <Fragment set:html={icons[item.icon] ?? icons.groups} />
+                        </div>
+
+                        <p
+                            class="text-4xl font-extrabold text-slate-900 tracking-tight stat-number"
+                            data-target={item.number ?? ""}
+                            data-prefix={item.prefix}
+                            data-suffix={item.suffix}
+                            data-raw={item.raw}
+                        >
+                            {item.raw}
+                        </p>
+                        <p class="text-slate-500 text-sm font-medium mt-2">{item.title}</p>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    function animateCounters() {
+        const els = document.querySelectorAll<HTMLElement>(".stat-number");
+
+        els.forEach(el => {
+            const target = parseFloat(el.dataset.target || "");
+            if (isNaN(target)) return;
+
+            const prefix = el.dataset.prefix ?? "";
+            const suffix = el.dataset.suffix ?? "";
+            const duration = 1800;
+            const steps = 60;
+            const interval = duration / steps;
+            let current = 0;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                step++;
+                // easeOutCubic
+                const progress = 1 - Math.pow(1 - step / steps, 3);
+                current = target * progress;
+
+                const display = target % 1 === 0
+                    ? Math.round(current).toLocaleString()
+                    : current.toFixed(1);
+
+                el.textContent = prefix + display + suffix;
+
+                if (step >= steps) {
+                    clearInterval(timer);
+                    // restore exact original value
+                    el.textContent = el.dataset.raw!;
+                }
+            }, interval);
+        });
+    }
+
+    // Trigger when section scrolls into view
+    const section = document.querySelector(".stat-number")?.closest("section");
+    if (section) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.3 }
+        );
+        observer.observe(section);
+    }
+</script>

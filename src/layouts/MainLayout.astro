@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <slot name="head" />
+        <title>Sistemas Virtuales | Rastreo Satelital</title>
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <meta
+            name="description"
+            content="Sistemas Virtuales - Servicios de tracking y monitoreo vehicular"
+        />
+        <meta
+            name="keywords"
+            content="rastreo satelital, tracking, monitoreo vehicular"
+        />
+        <meta name="author" content="Rastreo Satelital" />
+    </head>
+
+    <body>
+        <slot />
+    </body>
+</html>
