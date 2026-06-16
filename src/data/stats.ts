@@ -1,18 +1,18 @@
 export const stats = [
     {
-        value: "50,000+",
+        value: "1.720+",
         title: "Usuarios Activos",
-        icon: "groups",
+        icon: "people",
     },
     {
-        value: "99.9%",
-        title: "Vehículos Recuperados",
-        icon: "verified_user",
+        value: "4.130+",
+        title: "Vehículos Con Nuestro GPS",
+        icon: "directions_car",
     },
     {
-        value: "< 3s",
-        title: "Latencia de Red",
-        icon: "speed",
+        value: "15+",
+        title: "Años de Experiencia",
+        icon: "calendar_today",
     },
     {
         value: "24/7",

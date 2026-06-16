@@ -5,8 +5,14 @@ const [featured, ...rest] = testimonials;
 
 <section class="py-24 bg-white">
     <div class="container-custom">
+        <div class="mb-14 reveal">
+            <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">Testimonios</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Lo que dicen <span class="text-blue-600">nuestros clientes</span>
+            </h2>
+        </div>
 
-        <div class="grid lg:grid-cols-5 gap-6 items-stretch">
+        <div class="grid lg:grid-cols-5 gap-6 items-stretch reveal-stagger">
 
             <!-- Featured testimonial (large) -->
             <article class="lg:col-span-3 bg-slate-900 rounded-3xl p-10 flex flex-col justify-between gap-8">
@@ -70,12 +76,8 @@ const [featured, ...rest] = testimonials;
 
         </div>
 
-        <!-- Section label below -->
-        <div class="mt-10 flex items-center gap-4">
-            <div class="h-px flex-1 bg-slate-100"></div>
-            <p class="text-slate-400 text-sm font-medium">Lo que dicen nuestros clientes</p>
-            <div class="h-px flex-1 bg-slate-100"></div>
-        </div>
+        <!-- Divider -->
+        <div class="mt-10 h-px bg-slate-100"></div>
 
     </div>
 </section>

@@ -13,6 +13,19 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const { title, subtitle, description, sections, subServices } = service;
+
+// Stats dinámicos calculados del contenido real del servicio
+const totalFeatures =
+  sections.reduce((acc, s) => acc + s.items.length, 0) +
+  (subServices?.reduce((acc, s) => acc + s.items.length, 0) ?? 0);
+const totalSections = sections.length + (subServices?.length ?? 0);
+
+const heroStats = [
+  { label: "Funciones incluidas", value: `+${totalFeatures}` },
+  { label: "Módulos disponibles", value: String(totalSections) },
+  { label: "Soporte técnico", value: "24/7" },
+  { label: "Plataforma", value: "Web + APP" },
+];
 ---
 
 <!doctype html>
@@ -27,10 +40,7 @@ const { title, subtitle, description, sections, subServices } = service;
   <body class="bg-white">
     <Header />
 
-    <!-- ── Hero ──────────────────────────────────────────────────────────────
-         Layout: left-aligned, dark, max pt-24, 4 elements max (breadcrumb,
-         h1, description, 2 CTAs). Single eyebrow (the only one on this page).
-    ──────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
     <section class="bg-slate-950 pt-24 pb-20 relative overflow-hidden">
       <div
         class="absolute inset-0 pointer-events-none"
@@ -47,11 +57,13 @@ const { title, subtitle, description, sections, subServices } = service;
         <nav class="flex items-center gap-2 text-slate-500 text-sm mb-10" aria-label="Breadcrumb">
           <a href="/" class="hover:text-slate-300 transition-colors duration-150">Inicio</a>
           <span aria-hidden="true">/</span>
-          <span class="text-white">{subtitle}</span>
+          <a href="/#servicios" class="hover:text-slate-300 transition-colors duration-150">Servicios</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-white">{title}</span>
         </nav>
 
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div class="reveal is-visible" style="transition-delay:150ms">
             <p class="font-mono text-xs font-medium text-blue-400 tracking-[0.18em] uppercase mb-5">
               Sistemas Virtuales
             </p>
@@ -83,14 +95,9 @@ const { title, subtitle, description, sections, subServices } = service;
             </div>
           </div>
 
-          <!-- Right: stat pills -->
+          <!-- Right: stats dinámicos del servicio -->
           <div class="hidden lg:grid grid-cols-2 gap-3">
-            {[
-              { label: "Cobertura internacional", value: "Siempre conectados" },
-              { label: "Soporte técnico", value: "24/7" },
-              { label: "Instalación", value: "Profesional" },
-              { label: "Plataforma web", value: "+ APP móvil" },
-            ].map((stat) => (
+            {heroStats.map((stat) => (
               <div class="bg-white/5 border border-white/8 rounded-xl p-5">
                 <p class="text-slate-400 text-xs font-medium mb-1">{stat.label}</p>
                 <p class="text-white font-bold text-lg">{stat.value}</p>
@@ -101,10 +108,7 @@ const { title, subtitle, description, sections, subServices } = service;
       </div>
     </section>
 
-    <!-- ── Sub-servicios (layout: lista con divisores, NO cards en grid) ────
-         Aplica solo cuando el servicio agrupa varias modalidades.
-         Usa divide-y en lugar de 3 cards iguales para romper el patrón.
-    ──────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Modalidades (layout divide-y: icono + título / features) ────────── -->
     {subServices && subServices.length > 0 && (
       <section class="py-20 bg-white">
         <div class="container-custom">
@@ -112,26 +116,21 @@ const { title, subtitle, description, sections, subServices } = service;
             Modalidades de rastreo
           </h2>
 
-          <div class="divide-y divide-slate-100">
+          <div class="divide-y divide-slate-100 reveal-stagger">
             {subServices.map((sub, i) => {
               const icons = [
-                /* Vehículo / carro */
                 <svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>,
-                /* Motocicleta */
-                <svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /><circle cx="18" cy="18.75" r="0" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75l2.25 4.5H9.75L12 6.75z" /></svg>,
-                /* Bicicleta / GPS */
+                <svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75l2.25 4.5H9.75L12 6.75z" /></svg>,
                 <svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>,
               ];
               return (
                 <div class="py-8 grid md:grid-cols-[1fr_2fr] gap-6 md:gap-12 items-start">
-                  <!-- Left: icono + title -->
                   <div class="flex items-start gap-4">
                     <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
                       {icons[i] ?? icons[0]}
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 leading-snug pt-1.5">{sub.title}</h3>
                   </div>
-                  <!-- Right: features in 2-col pill grid -->
                   <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {sub.items.map((item) => (
                       <li class="flex items-center gap-2.5 text-sm text-slate-600">
@@ -150,43 +149,36 @@ const { title, subtitle, description, sections, subServices } = service;
       </section>
     )}
 
-    <!-- ── Secciones específicas (layout: split 2-col izq=titulo / der=lista)
-         Diferente familia de layout que sub-servicios y planes.
-    ──────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Secciones "Lo que incluye" (cards con acento izquierdo — distinto
+         visualmente de las modalidades que usan divide-y) ────────────────── -->
     {sections.length > 0 && (
-      <section class="py-20 bg-slate-50">
+      <section class="py-20 bg-slate-950">
         <div class="container-custom">
-          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-10">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-10">
             Lo que incluye {subtitle}
           </h2>
 
-          <div class="flex flex-col gap-5">
-            {sections.map((section, i) => (
-              <div class={`rounded-2xl overflow-hidden border ${i % 2 === 0 ? "bg-slate-900 border-slate-800" : "bg-white border-slate-200"}`}>
-                <div class="grid md:grid-cols-[280px_1fr]">
-                  <!-- Left: título de la sección -->
-                  <div class={`p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r ${i % 2 === 0 ? "border-slate-800" : "border-slate-100"}`}>
-                    <div>
-                      <div class={`w-9 h-9 rounded-lg flex items-center justify-center mb-5 ${i % 2 === 0 ? "bg-blue-600" : "bg-slate-100"}`}>
-                        <svg class={`w-4 h-4 ${i % 2 === 0 ? "text-white" : "text-blue-600"}`} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                        </svg>
-                      </div>
-                      <h3 class={`text-lg font-bold leading-snug ${i % 2 === 0 ? "text-white" : "text-slate-900"}`}>
-                        {section.title}
-                      </h3>
+          <div class="flex flex-col gap-4 reveal-stagger">
+            {sections.map((section) => (
+              <div class="bg-white/5 border border-white/8 rounded-2xl overflow-hidden">
+                <div class="grid md:grid-cols-[260px_1fr]">
+                  <!-- Left: título con borde azul izquierdo -->
+                  <div class="border-b md:border-b-0 md:border-r border-white/8 p-6 flex flex-col justify-between">
+                    <div class="flex items-start gap-3">
+                      <div class="w-1 self-stretch rounded-full bg-blue-500 shrink-0"></div>
+                      <h3 class="text-base font-bold text-white leading-snug">{section.title}</h3>
                     </div>
-                    <span class={`text-xs font-mono mt-6 ${i % 2 === 0 ? "text-slate-600" : "text-slate-400"}`}>
+                    <span class="text-xs font-mono text-slate-500 mt-4 pl-4">
                       {section.items.length} funciones
                     </span>
                   </div>
 
-                  <!-- Right: lista de features en 2 columnas -->
-                  <div class="p-8">
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                  <!-- Right: features -->
+                  <div class="p-6">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
                       {section.items.map((item) => (
-                        <li class={`flex items-start gap-2.5 text-sm leading-relaxed ${i % 2 === 0 ? "text-slate-300" : "text-slate-600"}`}>
-                          <svg class={`w-4 h-4 shrink-0 mt-0.5 ${i % 2 === 0 ? "text-blue-400" : "text-blue-500"}`} fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                        <li class="flex items-start gap-2.5 text-sm text-slate-300 leading-relaxed">
+                          <svg class="w-4 h-4 shrink-0 mt-0.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
                           {item}
@@ -202,9 +194,7 @@ const { title, subtitle, description, sections, subServices } = service;
       </section>
     )}
 
-    <!-- ── Planes (layout asimétrico: card grande centro + dos flancos) ─────
-         Familia diferente al resto: card central destacado con escala visual.
-    ──────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Planes ─────────────────────────────────────────────────────────── -->
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="mb-10 text-center">
@@ -216,7 +206,7 @@ const { title, subtitle, description, sections, subServices } = service;
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-4 items-start max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-4 items-start max-w-5xl mx-auto reveal-stagger">
           {PLANS.map((plan) => (
             <article class={`relative flex flex-col gap-5 rounded-2xl p-7 border transition-all duration-200 ${
               plan.highlighted
@@ -269,10 +259,7 @@ const { title, subtitle, description, sections, subServices } = service;
       </div>
     </section>
 
-    <!-- ── Franja de contacto (reemplaza CTA final redundante) ──────────────
-         Layout horizontal, no duplica el intent del hero.
-         No es otra sección oscura completa, es una franja compacta.
-    ──────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Franja de contacto ─────────────────────────────────────────────── -->
     <div class="border-t border-slate-100 bg-slate-50">
       <div class="container-custom py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
@@ -299,5 +286,22 @@ const { title, subtitle, description, sections, subServices } = service;
     </div>
 
     <Footer />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) =>
+        observer.observe(el)
+      );
+    </script>
   </body>
 </html>
