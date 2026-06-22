@@ -41,7 +41,7 @@ const heroStats = [
     <Header />
 
     <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
-    <section class="bg-slate-950 pt-24 pb-20 relative overflow-hidden">
+    <section class="pt-24 pb-20 relative overflow-hidden" style="background-color: #003d73;">
       <div
         class="absolute inset-0 pointer-events-none"
         style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 72px 72px;"
@@ -104,6 +104,71 @@ const heroStats = [
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Planes ─────────────────────────────────────────────────────────── -->
+    <section class="py-16 bg-[#f0f5fb]">
+      <div class="container-custom">
+        <div class="mb-8 text-center">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Planes disponibles
+          </h2>
+          <p class="text-slate-500 mt-2 text-sm mx-auto max-w-md">
+            Todos incluyen instalación profesional y soporte técnico. Precio según el tamaño de tu flota.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 items-start max-w-5xl mx-auto reveal-stagger">
+          {PLANS.map((plan) => (
+            <article class={`relative flex flex-col gap-5 rounded-2xl p-7 border-2 transition-all duration-200 ${
+              plan.highlighted
+                ? "bg-[#0059a6] border-[#0059a6] shadow-lg shadow-[#0059a6]/20 md:-mt-4 md:mb-4"
+                : "bg-white border-slate-200 hover:border-[#0059a6]/40"
+            }`}>
+              {plan.highlighted && (
+                <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#ffd400] text-[#003d73] text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap shadow">
+                  ★ Recomendado
+                </span>
+              )}
+
+              <div>
+                <h3 class={`text-base font-bold ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
+                  {plan.name}
+                </h3>
+                <p class={`text-xs mt-1 leading-relaxed ${plan.highlighted ? "text-blue-200" : "text-slate-500"}`}>
+                  {plan.description}
+                </p>
+              </div>
+
+              <div class={`h-px ${plan.highlighted ? "bg-white/20" : "bg-slate-200"}`}></div>
+
+              <ul class="flex flex-col gap-2.5 flex-1">
+                {plan.features.map((feature) => (
+                  <li class={`flex items-start gap-2 text-sm ${plan.highlighted ? "text-blue-100" : "text-slate-600"}`}>
+                    <svg class={`w-3.5 h-3.5 shrink-0 mt-0.5 ${plan.highlighted ? "text-[#ffd400]" : "text-[#0059a6]"}`} fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="https://wa.me/573157003022"
+                target="_blank"
+                rel="noopener"
+                class={`mt-2 inline-flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-150 ${
+                  plan.highlighted
+                    ? "bg-[#ffd400] text-[#003d73] hover:bg-yellow-300"
+                    : "bg-[#0059a6] text-white hover:bg-[#004a8c]"
+                }`}
+              >
+                Consultar precio
+              </a>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -193,71 +258,6 @@ const heroStats = [
         </div>
       </section>
     )}
-
-    <!-- ── Planes ─────────────────────────────────────────────────────────── -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="mb-10 text-center">
-          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Planes disponibles
-          </h2>
-          <p class="text-slate-500 mt-2 text-sm mx-auto max-w-md">
-            Todos incluyen instalacion profesional y soporte tecnico. Precio segun el tamano de tu flota.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-4 items-start max-w-5xl mx-auto reveal-stagger">
-          {PLANS.map((plan) => (
-            <article class={`relative flex flex-col gap-5 rounded-2xl p-7 border transition-all duration-200 ${
-              plan.highlighted
-                ? "bg-slate-900 border-blue-600/50 shadow-lg shadow-blue-600/10 md:-mt-4 md:mb-4"
-                : "bg-slate-50 border-slate-200 hover:border-slate-300"
-            }`}>
-              {plan.highlighted && (
-                <span class="absolute -top-3 left-6 px-2.5 py-0.5 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">
-                  Recomendado
-                </span>
-              )}
-
-              <div>
-                <h3 class={`text-base font-bold ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
-                  {plan.name}
-                </h3>
-                <p class={`text-xs mt-1 leading-relaxed ${plan.highlighted ? "text-slate-400" : "text-slate-500"}`}>
-                  {plan.description}
-                </p>
-              </div>
-
-              <div class={`h-px ${plan.highlighted ? "bg-slate-700" : "bg-slate-200"}`}></div>
-
-              <ul class="flex flex-col gap-2.5 flex-1">
-                {plan.features.map((feature) => (
-                  <li class={`flex items-start gap-2 text-sm ${plan.highlighted ? "text-slate-300" : "text-slate-600"}`}>
-                    <svg class={`w-3.5 h-3.5 shrink-0 mt-0.5 ${plan.highlighted ? "text-blue-400" : "text-blue-500"}`} fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="https://wa.me/573157003022"
-                target="_blank"
-                rel="noopener"
-                class={`mt-2 inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] ${
-                  plan.highlighted
-                    ? "bg-blue-600 hover:bg-blue-500 text-white"
-                    : "bg-white hover:bg-slate-100 text-slate-900 border border-slate-200"
-                }`}
-              >
-                Consultar precio
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
 
     <!-- ── Franja de contacto ─────────────────────────────────────────────── -->
     <div class="border-t border-slate-100 bg-slate-50">

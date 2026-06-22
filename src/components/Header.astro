@@ -1,18 +1,49 @@
 <header
     id="main-header"
-    class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-lg border-b border-black/6 transition-all duration-300"
+    class="sticky top-0 z-50 w-full shadow-md"
+    style="background-color: #0059a6;"
 >
+    <!-- Top bar: acceso a sistemas externos -->
+    <div class="border-b border-white/15" style="background-color: #004a8c;">
+        <div class="max-w-360 mx-auto px-8 h-9 flex items-center justify-between">
+            <span class="text-white/60 text-xs hidden sm:block">Acceso a plataformas externas:</span>
+            <div class="flex items-center gap-2 ml-auto">
+                <a
+                    href="#"
+                    title="Próximamente"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-medium transition-colors duration-150"
+                >
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
+                    </svg>
+                    Sistema 1
+                </a>
+                <a
+                    href="#"
+                    title="Próximamente"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-medium transition-colors duration-150"
+                >
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3" />
+                    </svg>
+                    Sistema 2
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main nav -->
     <div
         id="header-inner"
-        class="max-w-360 mx-auto px-8 h-20 flex items-center justify-between transition-all duration-300"
+        class="max-w-360 mx-auto px-8 h-24 flex items-center justify-between transition-all duration-300"
     >
         <!-- Logo -->
         <a href="/" class="flex items-center shrink-0">
             <img
                 id="header-logo"
-                src="/logo.png"
+                src="/logo-white.png"
                 alt="Sistemas Virtuales"
-                class="h-16 max-w-56 w-auto object-contain object-left transition-all duration-300"
+                class="h-20 max-w-64 w-auto object-contain object-left transition-all duration-300"
             />
         </a>
 
@@ -29,7 +60,7 @@
                     class="nav-link flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer"
                 >
                     Servicios
-                    <svg id="services-chevron" class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                    <svg id="services-chevron" class="w-3.5 h-3.5 text-white/50 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
@@ -40,7 +71,6 @@
                     role="menu"
                     class="absolute left-0 top-[calc(100%+12px)] w-72 bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/60 py-2 opacity-0 pointer-events-none transition-all duration-150 origin-top"
                 >
-                    <!-- Decorative arrow -->
                     <div class="absolute -top-1.5 left-6 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45"></div>
 
                     {[
@@ -53,10 +83,10 @@
                         <a
                             href={`/servicios/${item.slug}`}
                             role="menuitem"
-                            class="flex items-center gap-3 px-4 py-2.5 mx-1 rounded-xl text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 group"
+                            class="flex items-center gap-3 px-4 py-2.5 mx-1 rounded-xl text-sm text-slate-700 hover:bg-blue-50 hover:text-[#0059a6] transition-colors duration-150 group"
                         >
                             <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors duration-150">
-                                <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-[#0059a6]" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
                                 </svg>
                             </span>
@@ -67,30 +97,96 @@
             </div>
 
             <a href="/nosotros" class="nav-link">Nosotros</a>
-            <a href="#planes" class="nav-link">Planes</a>
+            <a href="/planes" class="nav-link">Planes</a>
         </nav>
 
-        <!-- CTA -->
+        <!-- CTA desktop -->
         <a
             href="https://wa.me/573157003022"
             target="_blank"
             rel="noopener"
             id="cta-btn"
-            class="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-br from-blue-700 to-blue-500 text-white text-sm font-semibold rounded-full shadow-[0_4px_14px_rgba(29,78,216,0.35)] hover:shadow-[0_8px_24px_rgba(29,78,216,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap"
+            class="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-[#ffd400] text-[#003d73] text-sm font-bold rounded-full hover:bg-yellow-300 active:scale-[0.98] transition-all duration-200 whitespace-nowrap shadow-lg"
         >
             <span>Solicitar Demo</span>
-            <svg
-                class="w-4 h-4 shrink-0"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                    clip-rule="evenodd"></path>
+            <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
             </svg>
         </a>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl gap-1.5 transition-colors duration-200"
+            style="background-color: rgba(255,255,255,0.1);"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+        >
+            <span class="hamburger-bar block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+            <span class="hamburger-bar block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+            <span class="hamburger-bar block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+        </button>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div
+        id="mobile-menu"
+        class="md:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0"
+        style="background-color: #003d73;"
+        aria-hidden="true"
+    >
+        <nav class="px-6 pb-6 pt-2 flex flex-col gap-1">
+
+            <a href="/" class="mobile-nav-link">Inicio</a>
+
+            <!-- Servicios accordion -->
+            <div>
+                <button
+                    id="mobile-services-btn"
+                    class="mobile-nav-link w-full text-left flex items-center justify-between"
+                >
+                    Servicios
+                    <svg id="mobile-services-chevron" class="w-4 h-4 text-white/50 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div id="mobile-services-sub" class="max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="pl-4 pt-1 pb-2 flex flex-col gap-1">
+                        {[
+                            { label: "Vehículos Particulares y Motocicletas", slug: "vehiculos-particulares" },
+                            { label: "Transporte de Pasajeros", slug: "transporte-de-pasajeros" },
+                            { label: "Transporte de Hidrocarburos", slug: "transporte-de-hidrocarburos" },
+                            { label: "Maquinaria Amarilla", slug: "maquinaria-amarilla" },
+                            { label: "Transporte de Carga", slug: "transporte-de-carga" },
+                        ].map((item) => (
+                            <a
+                                href={`/servicios/${item.slug}`}
+                                class="text-white/70 hover:text-white text-sm py-2 px-3 rounded-xl hover:bg-white/10 transition-colors duration-150"
+                            >
+                                {item.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <a href="/nosotros" class="mobile-nav-link">Nosotros</a>
+            <a href="/planes" class="mobile-nav-link">Planes</a>
+
+            <!-- CTA -->
+            <a
+                href="https://wa.me/573157003022"
+                target="_blank"
+                rel="noopener"
+                class="mt-3 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-colors duration-200"
+                style="background-color: #ffd400; color: #003d73;"
+            >
+                Solicitar Demo
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+                </svg>
+            </a>
+        </nav>
     </div>
 </header>
 
@@ -99,7 +195,7 @@
         position: relative;
         font-size: 0.95rem;
         font-weight: 500;
-        color: #374151;
+        color: rgba(255,255,255,0.85);
         text-decoration: none;
         letter-spacing: 0.01em;
         padding-bottom: 4px;
@@ -113,7 +209,7 @@
         bottom: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+        background: #ffd400;
         border-radius: 9999px;
         transition:
             width 0.28s ease,
@@ -121,7 +217,7 @@
     }
 
     .nav-link:hover {
-        color: #1d4ed8;
+        color: #ffffff;
     }
 
     .nav-link:hover::after {
@@ -129,7 +225,6 @@
         width: 100%;
     }
 
-    /* button reset para el trigger */
     #services-trigger {
         font-family: inherit;
     }
@@ -139,7 +234,6 @@
         transition: opacity 150ms ease, transform 150ms ease;
     }
 
-    /* Puente invisible que cubre el gap entre el trigger y el panel */
     #services-dropdown::before {
         content: "";
         position: absolute;
@@ -158,24 +252,53 @@
     #services-chevron.open {
         transform: rotate(180deg);
     }
+
+    .mobile-nav-link {
+        display: block;
+        color: rgba(255,255,255,0.85);
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.625rem 0.75rem;
+        border-radius: 0.75rem;
+        text-decoration: none;
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .mobile-nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+        color: #ffffff;
+    }
+
+    #mobile-menu-btn.open .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu-btn.open .hamburger-bar:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    #mobile-menu-btn.open .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #mobile-services-chevron.open {
+        transform: rotate(180deg);
+    }
 </style>
 
 <script>
     /* ── Scroll shrink ─────────────────────────────────────────────────────── */
-    const header = document.getElementById("main-header");
     const inner  = document.getElementById("header-inner");
     const logo   = document.getElementById("header-logo");
     const cta    = document.getElementById("cta-btn");
 
     function onScroll() {
         const scrolled = window.scrollY > 20;
-        header?.classList.toggle("bg-white/85", !scrolled);
-        header?.classList.toggle("bg-white/96", scrolled);
-        header?.classList.toggle("shadow-[0_4px_24px_rgba(0,0,0,0.08)]", scrolled);
-        inner?.classList.toggle("h-20", !scrolled);
-        inner?.classList.toggle("h-14", scrolled);
-        logo?.classList.toggle("h-16", !scrolled);
-        logo?.classList.toggle("h-10", scrolled);
+        inner?.classList.toggle("h-24", !scrolled);
+        inner?.classList.toggle("h-16", scrolled);
+        logo?.classList.toggle("h-20", !scrolled);
+        logo?.classList.toggle("h-12", scrolled);
         cta?.classList.toggle("px-6", !scrolled);
         cta?.classList.toggle("py-2.5", !scrolled);
         cta?.classList.toggle("px-4", scrolled);
@@ -209,7 +332,6 @@
         return dropdown?.classList.contains("open");
     }
 
-    /* Desktop: hover */
     const isTouch = () => window.matchMedia("(hover: none)").matches;
 
     menu?.addEventListener("mouseenter", () => {
@@ -219,19 +341,73 @@
         if (!isTouch()) closeDropdown();
     });
 
-    /* Touch / click */
     trigger?.addEventListener("click", (e) => {
         e.stopPropagation();
         isOpen() ? closeDropdown() : openDropdown();
     });
 
-    /* Close on outside click */
     document.addEventListener("click", (e) => {
         if (!menu?.contains(e.target as Node)) closeDropdown();
     });
 
-    /* Close on Escape */
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeDropdown();
+    });
+
+    /* ── Mobile menu ───────────────────────────────────────────────────────── */
+    const mobileBtn  = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileServiceBtn     = document.getElementById("mobile-services-btn");
+    const mobileServicesSub    = document.getElementById("mobile-services-sub");
+    const mobileServicesChevron = document.getElementById("mobile-services-chevron");
+
+    let mobileOpen = false;
+    let mobileServicesOpen = false;
+
+    function openMobileMenu() {
+        mobileOpen = true;
+        mobileMenu!.style.maxHeight = mobileMenu!.scrollHeight + "px";
+        mobileMenu!.style.opacity = "1";
+        mobileMenu!.setAttribute("aria-hidden", "false");
+        mobileBtn!.classList.add("open");
+        mobileBtn!.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMobileMenu() {
+        mobileOpen = false;
+        mobileMenu!.style.maxHeight = "0";
+        mobileMenu!.style.opacity = "0";
+        mobileMenu!.setAttribute("aria-hidden", "true");
+        mobileBtn!.classList.remove("open");
+        mobileBtn!.setAttribute("aria-expanded", "false");
+    }
+
+    mobileBtn?.addEventListener("click", () => {
+        mobileOpen ? closeMobileMenu() : openMobileMenu();
+    });
+
+    mobileServiceBtn?.addEventListener("click", () => {
+        mobileServicesOpen = !mobileServicesOpen;
+        if (mobileServicesOpen) {
+            mobileServicesSub!.style.maxHeight = mobileServicesSub!.scrollHeight + "px";
+            mobileServicesChevron!.classList.add("open");
+        } else {
+            mobileServicesSub!.style.maxHeight = "0";
+            mobileServicesChevron!.classList.remove("open");
+        }
+        // Recalculate menu height after sub-menu opens
+        setTimeout(() => {
+            if (mobileOpen) {
+                mobileMenu!.style.maxHeight = mobileMenu!.scrollHeight + "px";
+            }
+        }, 10);
+    });
+
+    // Close mobile menu on outside click
+    document.addEventListener("click", (e) => {
+        const header = document.getElementById("main-header");
+        if (mobileOpen && !header?.contains(e.target as Node)) {
+            closeMobileMenu();
+        }
     });
 </script>

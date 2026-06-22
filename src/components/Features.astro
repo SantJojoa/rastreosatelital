@@ -1,46 +1,75 @@
 <section class="py-24 bg-white dot-grid">
     <div class="container-custom">
         <div class="mb-14 reveal">
-            <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">Plataforma</p>
-            <h2
-                class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-xl"
-            >
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-xl" style="text-wrap: balance;">
                 Todo lo que necesitas en
-                <span class="text-blue-600"> un solo lugar</span>
+                <span style="color: #0059a6;"> un solo lugar</span>
             </h2>
+            <p class="text-slate-500 mt-4 max-w-lg text-base">Monitorea, controla y protege tu flota desde una sola plataforma — en la web y en tu celular.</p>
         </div>
 
-        <!-- Bento 3×2: 6 celdas, sin huecos -->
+        <!-- Bento asimétrico -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger">
 
-            <!-- Card grande: Rastreo en tiempo real (col-span-1 lg, row-span-2) -->
+            <!-- Card principal: Rastreo en tiempo real -->
             <article
-                class="group relative bg-slate-900 rounded-3xl p-9 overflow-hidden flex flex-col gap-5 lg:row-span-2"
+                class="group relative rounded-3xl p-9 overflow-hidden flex flex-col gap-5 lg:row-span-2 lg:col-span-1"
+                style="background-color: #0059a6;"
             >
-                <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="relative z-10 w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                <!-- Mapa SVG decorativo de fondo -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden rounded-3xl">
+                    <svg width="100%" height="100%" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" y1="100" x2="300" y2="100" stroke="white" stroke-width="1"/>
+                        <line x1="0" y1="200" x2="300" y2="200" stroke="white" stroke-width="1"/>
+                        <line x1="0" y1="300" x2="300" y2="300" stroke="white" stroke-width="1"/>
+                        <line x1="0" y1="400" x2="300" y2="400" stroke="white" stroke-width="1"/>
+                        <line x1="60" y1="0" x2="60" y2="500" stroke="white" stroke-width="1"/>
+                        <line x1="150" y1="0" x2="150" y2="500" stroke="white" stroke-width="1"/>
+                        <line x1="240" y1="0" x2="240" y2="500" stroke="white" stroke-width="1"/>
+                        <polyline points="20,320 80,280 130,250 180,230 240,170 290,140" stroke="white" stroke-width="2" fill="none" stroke-dasharray="6 3"/>
+                        <circle cx="180" cy="230" r="8" fill="#ffd400" opacity="0.9"/>
+                        <circle cx="180" cy="230" r="16" fill="#ffd400" opacity="0.3"/>
+                        <circle cx="80" cy="280" r="5" fill="white" opacity="0.6"/>
+                        <circle cx="240" cy="170" r="5" fill="white" opacity="0.6"/>
+                    </svg>
+                </div>
+
+                <div class="relative z-10 w-12 h-12 rounded-2xl bg-white/20 border border-white/30 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
                     </svg>
                 </div>
                 <div class="relative z-10 flex flex-col gap-3 flex-1">
                     <h3 class="text-2xl font-bold text-white">Rastreo en Tiempo Real</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        Ubica de manera fácil e inmediata tus vehículos mediante el rastreo en tiempo real y de manera ininterrumpida. Sin puntos ciegos, sin demoras.
+                    <p class="text-blue-100 leading-relaxed">
+                        Ubica de manera fácil e inmediata tus vehículos de forma ininterrumpida. Sin puntos ciegos, sin demoras.
                     </p>
                 </div>
-                <div class="relative z-10 flex items-center gap-2 mt-auto">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    <span class="text-slate-400 text-xs">Actualización cada 30 segundos</span>
+                <div class="relative z-10 flex items-center gap-2 mt-auto bg-white/10 rounded-2xl px-4 py-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shrink-0"></span>
+                    <span class="text-white/80 text-xs font-medium">Actualización cada 30 segundos</span>
                 </div>
             </article>
 
-            <!-- Card 2: Supervisión de Combustible -->
+            <!-- Card: Alertas en tiempo real -->
+            <article class="group rounded-3xl p-8 flex flex-col gap-5 hover:-translate-y-1 hover:shadow-xl transition-all duration-300" style="background-color: #ffd400;">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background-color: #003d73;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-2 flex-1">
+                    <h3 class="text-lg font-bold" style="color: #003d73;">Alertas en Tiempo Real</h3>
+                    <p class="text-sm leading-relaxed" style="color: #004a8c;">Notificaciones instantáneas por exceso de velocidad, salida de zona asignada o apertura de puertas no autorizada.</p>
+                </div>
+            </article>
+
+            <!-- Card: Supervisión de Combustible -->
             <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-8 flex flex-col gap-5 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/>
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2 flex-1">
@@ -49,11 +78,11 @@
                 </div>
             </article>
 
-            <!-- Card 3: Optimización de Rutas -->
+            <!-- Card: Optimización de Rutas -->
             <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-8 flex flex-col gap-5 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2 flex-1">
@@ -62,24 +91,11 @@
                 </div>
             </article>
 
-            <!-- Card 4: Alertas en tiempo real -->
-            <article class="group bg-blue-600 rounded-3xl p-8 flex flex-col gap-5 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/20 transition-all duration-300">
-                <div class="w-12 h-12 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                    </svg>
-                </div>
-                <div class="flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-white">Alertas en Tiempo Real</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed">Notificaciones instantáneas por exceso de velocidad, salida de zona asignada o apertura de puertas no autorizada.</p>
-                </div>
-            </article>
-
-            <!-- Card 5: Historial de recorridos -->
+            <!-- Card: Historial de recorridos -->
             <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-8 flex flex-col gap-5 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3M12 3v9.75" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3M12 3v9.75"/>
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2 flex-1">

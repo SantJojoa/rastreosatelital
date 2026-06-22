@@ -1,35 +1,29 @@
-<section class="py-24 bg-slate-50 dot-grid">
+<section class="py-24 bg-white dot-grid">
     <div class="container-custom">
         <div class="mb-14 reveal">
-            <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">Servicios adicionales</p>
             <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Seguridad <span class="text-blue-600">integral</span>
+                Seguridad <span style="color: #0059a6;">integral</span>
             </h2>
-            <p class="text-slate-500 mt-3 max-w-lg">
+            <p class="text-slate-500 mt-4 max-w-lg">
                 Más allá del rastreo, un ecosistema completo de seguridad para tu vehículo y tu hogar.
             </p>
         </div>
 
-        <!--
-            Layout asimétrico: 3 col-span grid
-            [camera vehicular: col-span-2] [chip: col-span-1 row-span-2]
-            [camera residencial: col-span-2] [chip continúa]
-        -->
         <div class="grid lg:grid-cols-3 gap-5 reveal-stagger">
 
-            <!-- Cámaras vehiculares: top-left, 2 cols -->
-            <article class="group relative bg-slate-900 rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:col-span-2 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Cámaras vehiculares: col-span-2 -->
+            <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:col-span-2 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300" style="background-color: #0059a6;">
+                <div class="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(255,212,0,0.15);"></div>
 
-                <div class="relative z-10 flex items-start gap-6">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(29,78,216,0.4)] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div class="relative z-10 flex items-start gap-5">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-[#003d73] shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg" style="background-color: #ffd400;">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                         </svg>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-white">Cámaras Vehiculares</h3>
-                        <p class="text-blue-400 font-medium text-sm mt-0.5">Vigilancia a bordo 24/7</p>
+                        <p class="font-medium text-sm mt-0.5" style="color: #ffd400;">Vigilancia a bordo 24/7</p>
                     </div>
                 </div>
 
@@ -43,9 +37,9 @@
                         "Transmisión en línea via WiFi",
                         "Reproducción desde APP o PC",
                     ].map((item) => (
-                        <div class="flex items-center gap-2.5 text-slate-300 text-sm">
-                            <span class="w-4 h-4 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0">
-                                <svg class="w-2.5 h-2.5 text-blue-400" viewBox="0 0 12 12" fill="none">
+                        <div class="flex items-center gap-2.5 text-white/80 text-sm">
+                            <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style="background-color: rgba(255,212,0,0.2); border: 1px solid rgba(255,212,0,0.4);">
+                                <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" style="color: #ffd400;">
                                     <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
@@ -58,7 +52,8 @@
                     href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20c%C3%A1maras%20vehiculares."
                     target="_blank"
                     rel="noopener"
-                    class="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors duration-200 self-start"
+                    class="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-colors duration-200 self-start"
+                    style="background-color: #ffd400; color: #003d73;"
                 >
                     Solicitar información
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
@@ -66,36 +61,36 @@
             </article>
 
             <!-- Chip de seguridad: right column, row-span-2 -->
-            <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:row-span-2 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div class="absolute -top-10 -right-10 w-56 h-56 bg-white/10 rounded-full pointer-events-none"></div>
-                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full pointer-events-none"></div>
+            <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:row-span-2 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300" style="background-color: #003d73;">
+                <div class="absolute -top-10 -right-10 w-56 h-56 rounded-full pointer-events-none" style="background-color: rgba(255,212,0,0.08);"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full pointer-events-none" style="background-color: rgba(255,255,255,0.04);"></div>
 
                 <div class="relative z-10">
-                    <div class="w-14 h-14 rounded-2xl bg-white/20 border border-white/30 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-[#003d73] mb-6 group-hover:scale-110 transition-transform duration-300" style="background-color: #ffd400;">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                         </svg>
                     </div>
 
                     <h3 class="text-xl font-bold text-white mb-1">Chip de Seguridad</h3>
-                    <p class="text-white/70 font-semibold text-sm mb-6">Por alejamiento</p>
+                    <p class="font-semibold text-sm mb-6" style="color: #ffd400;">Por alejamiento</p>
 
                     <div class="flex flex-col gap-4 mb-6">
-                        <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <div class="rounded-2xl p-4 flex items-start gap-3" style="background-color: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffd400">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                             </svg>
-                            <p class="text-white/90 text-sm leading-relaxed">Apaga tu vehículo <strong class="text-white">automáticamente</strong> en caso de hurto mediante señal de alejamiento.</p>
+                            <p class="text-white/80 text-sm leading-relaxed">Apaga tu vehículo <strong class="text-white">automáticamente</strong> en caso de hurto mediante señal de alejamiento.</p>
                         </div>
-                        <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <div class="rounded-2xl p-4 flex items-start gap-3" style="background-color: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffd400">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75" />
                             </svg>
-                            <p class="text-white/90 text-sm leading-relaxed"><strong class="text-white">Pago único.</strong> Sin mensualidades ni suscripciones adicionales.</p>
+                            <p class="text-white/80 text-sm leading-relaxed"><strong class="text-white">Pago único.</strong> Sin mensualidades ni suscripciones adicionales.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-2 text-white/60 text-xs mb-6">
+                    <div class="flex items-center gap-2 text-white/50 text-xs mb-6">
                         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                         Instalación profesional incluida
                     </div>
@@ -105,26 +100,27 @@
                     href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20el%20chip%20de%20seguridad%20por%20alejamiento."
                     target="_blank"
                     rel="noopener"
-                    class="relative z-10 mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-blue-700 text-sm font-bold hover:bg-blue-50 transition-colors duration-200 self-start shadow-lg"
+                    class="relative z-10 mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-colors duration-200 self-start shadow-lg"
+                    style="background-color: #ffd400; color: #003d73;"
                 >
                     Consultar precio
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
                 </a>
             </article>
 
-            <!-- Cámaras residenciales: bottom-left, 2 cols -->
-            <article class="group relative bg-slate-900 rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:col-span-2 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div class="absolute top-0 right-0 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Cámaras residenciales: col-span-2 -->
+            <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col gap-6 lg:col-span-2 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300" style="background-color: #003d73;">
+                <div class="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(0,89,166,0.4);"></div>
 
-                <div class="relative z-10 flex items-start gap-6">
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(99,102,241,0.4)] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div class="relative z-10 flex items-start gap-5">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-[#003d73] shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg" style="background-color: #ffd400;">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                         </svg>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-white">Cámaras Residenciales</h3>
-                        <p class="text-indigo-400 font-medium text-sm mt-0.5">Vigilancia inteligente con IA</p>
+                        <p class="font-medium text-sm mt-0.5" style="color: #ffd400;">Vigilancia inteligente con IA</p>
                     </div>
                 </div>
 
@@ -140,9 +136,9 @@
                         "Visión nocturna a color",
                         "Cámaras PTZ, 360° y 180°",
                     ].map((item) => (
-                        <div class="flex items-center gap-2.5 text-slate-300 text-sm">
-                            <span class="w-4 h-4 rounded-full bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center shrink-0">
-                                <svg class="w-2.5 h-2.5 text-indigo-400" viewBox="0 0 12 12" fill="none">
+                        <div class="flex items-center gap-2.5 text-white/80 text-sm">
+                            <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style="background-color: rgba(255,212,0,0.15); border: 1px solid rgba(255,212,0,0.35);">
+                                <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" style="color: #ffd400;">
                                     <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
@@ -155,7 +151,8 @@
                     href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20c%C3%A1maras%20residenciales."
                     target="_blank"
                     rel="noopener"
-                    class="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors duration-200 self-start"
+                    class="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-colors duration-200 self-start"
+                    style="background-color: #ffd400; color: #003d73;"
                 >
                     Solicitar información
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>

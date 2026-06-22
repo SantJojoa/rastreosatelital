@@ -1,287 +1,179 @@
-<section class="py-24 bg-slate-50">
+---
+const services = [
+    {
+        slug: "vehiculos-particulares",
+        title: "Vehículos Particulares",
+        subtitle: "y Motocicletas",
+        desc: "Protege tu vehículo o moto con rastreo preciso, alertas de movimiento y recuperación rápida ante robo.",
+        accent: "#0059a6",
+        light: "#e8f0fb",
+        tag: "Más popular",
+        features: ["Botón de pánico", "Apagado remoto", "Historial de viajes", "App Android & iOS"],
+        // SVG path de carro
+        shape: `<circle cx="160" cy="100" r="80" fill="currentColor" opacity="0.08"/>
+                <rect x="40" y="70" width="240" height="80" rx="20" fill="currentColor" opacity="0.15"/>
+                <rect x="80" y="50" width="160" height="50" rx="14" fill="currentColor" opacity="0.12"/>
+                <circle cx="90" cy="155" r="22" fill="currentColor" opacity="0.25"/>
+                <circle cx="230" cy="155" r="22" fill="currentColor" opacity="0.25"/>`,
+    },
+    {
+        slug: "transporte-de-pasajeros",
+        title: "Transporte",
+        subtitle: "de Pasajeros",
+        desc: "Garantiza la seguridad de tus pasajeros con monitoreo en tiempo real, control de velocidad y módulo FUEC.",
+        accent: "#0284c7",
+        light: "#e0f2fe",
+        tag: "FUEC incluido",
+        features: ["Contador de pasajeros", "Módulo FUEC", "Control de velocidad", "Geocercas de ruta"],
+        shape: `<rect x="30" y="55" width="260" height="100" rx="18" fill="currentColor" opacity="0.15"/>
+                <rect x="30" y="55" width="60" height="100" rx="18" fill="currentColor" opacity="0.08"/>
+                <rect x="45" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
+                <rect x="95" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
+                <rect x="145" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
+                <rect x="195" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="75" cy="160" r="20" fill="currentColor" opacity="0.25"/>
+                <circle cx="215" cy="160" r="20" fill="currentColor" opacity="0.25"/>`,
+    },
+    {
+        slug: "maquinaria-amarilla",
+        title: "Maquinaria",
+        subtitle: "Amarilla",
+        desc: "Controla excavadoras, volquetas y equipos pesados con seguimiento de horas de uso y alertas de inactividad.",
+        accent: "#d97706",
+        light: "#fef3c7",
+        tag: "Sector minero",
+        features: ["Horas de trabajo", "Mantenimiento por fecha", "Geocercas de obra", "Consumo de combustible"],
+        shape: `<rect x="60" y="90" width="200" height="70" rx="10" fill="currentColor" opacity="0.15"/>
+                <rect x="180" y="50" width="80" height="70" rx="8" fill="currentColor" opacity="0.12"/>
+                <rect x="20" y="110" width="50" height="20" rx="5" fill="currentColor" opacity="0.2"/>
+                <rect x="250" y="110" width="50" height="20" rx="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="100" cy="165" r="18" fill="currentColor" opacity="0.25"/>
+                <circle cx="220" cy="165" r="18" fill="currentColor" opacity="0.25"/>
+                <rect x="80" y="45" width="8" height="60" rx="4" fill="currentColor" opacity="0.3"/>
+                <rect x="50" y="35" width="45" height="8" rx="4" fill="currentColor" opacity="0.3"/>`,
+    },
+    {
+        slug: "transporte-de-hidrocarburos",
+        title: "Hidrocarburos",
+        subtitle: "y Carga Peligrosa",
+        desc: "Monitoreo especializado: control de rutas, paradas autorizadas y sensores de tapas en tiempo real.",
+        accent: "#dc2626",
+        light: "#fee2e2",
+        tag: "Alta seguridad",
+        features: ["Sensores de tapas", "Alertas de ruta", "Trazabilidad completa", "Mantenimiento por km"],
+        shape: `<ellipse cx="160" cy="105" rx="120" ry="50" fill="currentColor" opacity="0.12"/>
+                <rect x="40" y="80" width="240" height="60" rx="30" fill="currentColor" opacity="0.15"/>
+                <rect x="260" y="90" width="40" height="20" rx="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="95" cy="155" r="20" fill="currentColor" opacity="0.25"/>
+                <circle cx="225" cy="155" r="20" fill="currentColor" opacity="0.25"/>
+                <circle cx="160" cy="100" r="12" fill="currentColor" opacity="0.3"/>`,
+    },
+    {
+        slug: "transporte-de-carga",
+        title: "Transporte",
+        subtitle: "de Carga",
+        desc: "Soluciones para refrigerados, contenedores y grúas con sensores de temperatura y candados satelitales.",
+        accent: "#7c3aed",
+        light: "#ede9fe",
+        tag: "Sensor incluido",
+        features: ["Sensor de temperatura", "Candado satelital", "Sensor de planchón", "Control de entregas"],
+        shape: `<rect x="20" y="60" width="260" height="90" rx="12" fill="currentColor" opacity="0.12"/>
+                <rect x="240" y="75" width="60" height="60" rx="10" fill="currentColor" opacity="0.15"/>
+                <rect x="20" y="60" width="80" height="90" rx="12" fill="currentColor" opacity="0.08"/>
+                <circle cx="80" cy="158" r="20" fill="currentColor" opacity="0.25"/>
+                <circle cx="200" cy="158" r="20" fill="currentColor" opacity="0.25"/>
+                <circle cx="265" cy="158" r="16" fill="currentColor" opacity="0.2"/>`,
+    },
+];
+---
+
+<section class="py-24" style="background-color: #f0f5fb;">
     <div class="container-custom">
         <div class="mb-14 reveal">
-            <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">Sectores</p>
-            <h2
-                class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight"
-            >
-                Soluciones para <span class="text-blue-600">cada sector</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style="text-wrap: balance;">
+                Soluciones para <span style="color: #0059a6;">cada sector</span>
             </h2>
-            <p class="text-slate-500 mt-3 max-w-lg">
-                Tecnología adaptada a las necesidades específicas de cada tipo
-                de vehículo y operación.
+            <p class="text-slate-500 mt-4 max-w-lg text-base">
+                Tecnología adaptada a las necesidades específicas de cada tipo de vehículo y operación.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal-stagger">
-            <!-- 1. Vehículos particulares y motocicletas -->
-            <article
-                class="group relative bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col gap-5"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-blue-50/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 reveal-stagger">
+            {services.map((s) => (
+                <article
+                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
                 >
-                </div>
-                <div
-                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(29,78,216,0.25)] group-hover:scale-110 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-7 h-7"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
+                    <!-- Colored header band with SVG illustration -->
+                    <div
+                        class="relative h-36 flex items-end px-8 pb-6 overflow-hidden"
+                        style={`background-color: ${s.light};`}
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-                        ></path>
-                    </svg>
-                </div>
-                <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">
-                        Vehículos Particulares y Motocicletas
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Protege tu vehículo o moto personal con rastreo preciso,
-                        alertas de movimiento y recuperación rápida ante robo.
-                    </p>
-                </div>
-                <a
-                    href="/servicios/vehiculos-particulares"
-                    class="relative z-10 inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-200"
-                >
-                    Ver más <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        ><path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                            clip-rule="evenodd"></path></svg
-                    >
-                </a>
-            </article>
+                        <!-- Decorative SVG shape -->
+                        <svg
+                            class="absolute inset-0 w-full h-full"
+                            viewBox="0 0 320 180"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={`color: ${s.accent};`}
+                        >
+                            <Fragment set:html={s.shape} />
+                        </svg>
 
-            <!-- 2. Transporte de pasajeros -->
-            <article
-                class="group relative bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col gap-5"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-cyan-50/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"
-                >
-                </div>
-                <div
-                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(6,182,212,0.25)] group-hover:scale-110 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-7 h-7"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-                        ></path>
-                    </svg>
-                </div>
-                <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">
-                        Transporte de Pasajeros
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Garantiza la seguridad de tus pasajeros y conductores
-                        con monitoreo en tiempo real, control de velocidad y
-                        reportes de ruta.
-                    </p>
-                </div>
-                <a
-                    href="/servicios/transporte-de-pasajeros"
-                    class="relative z-10 inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-200"
-                >
-                    Ver más <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        ><path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                            clip-rule="evenodd"></path></svg
-                    >
-                </a>
-            </article>
+                        <!-- Tag pill -->
+                        {s.tag && (
+                            <span
+                                class="relative z-10 px-3 py-1 rounded-full text-xs font-bold text-white"
+                                style={`background-color: ${s.accent};`}
+                            >
+                                {s.tag}
+                            </span>
+                        )}
 
-            <!-- 3. Maquinaria Amarilla -->
-            <article
-                class="group relative bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col gap-5"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-amber-50/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"
-                >
-                </div>
-                <div
-                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(245,158,11,0.25)] group-hover:scale-110 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-7 h-7"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-                        ></path>
-                    </svg>
-                </div>
-                <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">
-                        Maquinaria Amarilla
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Controla excavadoras, volquetas y equipos pesados con
-                        seguimiento de horas de uso, geocercas de obra y alertas
-                        de inactividad.
-                    </p>
-                </div>
-                <a
-                    href="/servicios/maquinaria-amarilla"
-                    class="relative z-10 inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-200"
-                >
-                    Ver más <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        ><path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                            clip-rule="evenodd"></path></svg
-                    >
-                </a>
-            </article>
+                        <!-- Icon -->
+                        <div
+                            class="absolute top-5 right-6 w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-lg"
+                            style={`background-color: ${s.accent};`}
+                        >
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                            </svg>
+                        </div>
+                    </div>
 
-            <!-- 4. Transporte de hidrocarburos -->
-            <article
-                class="group relative bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col gap-5"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-red-50/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"
-                >
-                </div>
-                <div
-                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(220,38,38,0.25)] group-hover:scale-110 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-7 h-7"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
-                        ></path>
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
-                        ></path>
-                    </svg>
-                </div>
-                <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">
-                        Transporte de Hidrocarburos
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Monitoreo especializado para cargas peligrosas: alertas
-                        de desvío de ruta, control de paradas no autorizadas y
-                        trazabilidad completa.
-                    </p>
-                </div>
-                <a
-                    href="/servicios/transporte-de-hidrocarburos"
-                    class="relative z-10 inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-200"
-                >
-                    Ver más <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        ><path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                            clip-rule="evenodd"></path></svg
-                    >
-                </a>
-            </article>
+                    <!-- Content -->
+                    <div class="flex flex-col gap-4 p-8 flex-1">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-slate-900 leading-tight">
+                                {s.title}
+                                <span class="block text-base font-semibold mt-0.5" style={`color: ${s.accent};`}>{s.subtitle}</span>
+                            </h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mt-2">{s.desc}</p>
+                        </div>
 
-            <!-- 5. Transporte de carga -->
-            <article
-                class="group relative bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col gap-5"
-            >
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-indigo-50/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"
-                >
-                </div>
-                <div
-                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-[0_4px_14px_rgba(99,102,241,0.25)] group-hover:scale-110 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-7 h-7"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-                        ></path>
-                    </svg>
-                </div>
-                <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">
-                        Transporte de Carga
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Optimiza la gestión de tu flota de carga con rutas
-                        inteligentes, control de entregas y reportes de
-                        eficiencia operativa en tiempo real.
-                    </p>
-                </div>
-                <a
-                    href="/servicios/transporte-de-carga"
-                    class="relative z-10 inline-flex items-center gap-1.5 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-200"
-                >
-                    Ver más <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        ><path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                            clip-rule="evenodd"></path></svg
-                    >
-                </a>
-            </article>
+                        <!-- Features list -->
+                        <ul class="grid grid-cols-2 gap-x-4 gap-y-1.5 flex-1">
+                            {s.features.map(f => (
+                                <li class="flex items-center gap-1.5 text-xs text-slate-600">
+                                    <span class="w-1.5 h-1.5 rounded-full shrink-0" style={`background-color: ${s.accent};`}></span>
+                                    {f}
+                                </li>
+                            ))}
+                        </ul>
+
+                        <!-- CTA -->
+                        <a
+                            href={`/servicios/${s.slug}`}
+                            class="inline-flex items-center gap-2 font-bold text-sm mt-2 group-hover:gap-3 transition-all duration-200"
+                            style={`color: ${s.accent};`}
+                        >
+                            Ver servicio completo
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            ))}
         </div>
     </div>
 </section>
