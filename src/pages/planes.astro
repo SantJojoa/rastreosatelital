@@ -16,19 +16,19 @@ import { PLANS } from "../data/services";
 
     <main>
         <!-- Hero -->
-        <section class="bg-[#0059a6] pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
-            <div class="absolute inset-0 dot-grid-light opacity-20 pointer-events-none"></div>
-            <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+        <section class="bg-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-slate-100">
+            <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none"></div>
+            <div class="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 pointer-events-none" style="background-color: rgba(0,89,166,0.06);"></div>
 
             <div class="container-custom relative z-10 text-center">
-                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/15 border border-white/20">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#ffd400]"></span>
-                    <span class="text-white/90 text-sm font-medium">Precios según tamaño de flota</span>
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style="background-color: rgba(0,89,166,0.08); border: 1px solid rgba(0,89,166,0.2);">
+                    <span class="w-1.5 h-1.5 rounded-full" style="background-color: #0059a6;"></span>
+                    <span class="text-sm font-medium" style="color: #0059a6;">Precios según tamaño de flota</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-5" style="text-wrap: balance;">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-5" style="text-wrap: balance;">
                     Planes de Rastreo Satelital
                 </h1>
-                <p class="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                     Instalación profesional, soporte técnico 24/7 y tecnología de punta. Elige el plan que se adapta a tu operación.
                 </p>
             </div>
@@ -41,9 +41,9 @@ import { PLANS } from "../data/services";
                     {PLANS.map((plan) => (
                         <article class={`relative flex flex-col gap-5 rounded-3xl p-8 border-2 transition-all duration-200 ${
                             plan.highlighted
-                                ? "bg-[#0059a6] border-[#0059a6] shadow-xl shadow-[#0059a6]/20 md:-mt-4 md:mb-4"
+                                ? "bg-white shadow-xl md:-mt-4 md:mb-4"
                                 : "bg-white border-slate-200 hover:border-[#0059a6]/40 hover:shadow-lg"
-                        }`}>
+                        }`} style={plan.highlighted ? "border-color: #0059a6; box-shadow: 0 20px 40px -12px rgba(0,89,166,0.25);" : ""}>
                             {plan.highlighted && (
                                 <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#ffd400] text-[#003d73] text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap shadow">
                                     ★ Recomendado
@@ -51,20 +51,20 @@ import { PLANS } from "../data/services";
                             )}
 
                             <div>
-                                <h3 class={`text-xl font-extrabold tracking-tight ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
+                                <h3 class="text-xl font-extrabold tracking-tight text-slate-900">
                                     {plan.name}
                                 </h3>
-                                <p class={`text-sm mt-1.5 leading-relaxed ${plan.highlighted ? "text-blue-200" : "text-slate-500"}`}>
+                                <p class="text-sm mt-1.5 leading-relaxed text-slate-500">
                                     {plan.description}
                                 </p>
                             </div>
 
-                            <div class={`h-px ${plan.highlighted ? "bg-white/20" : "bg-slate-100"}`}></div>
+                            <div class="h-px bg-slate-100"></div>
 
                             <ul class="flex flex-col gap-2.5 flex-1">
                                 {plan.features.map((feature) => (
-                                    <li class={`flex items-start gap-2.5 text-sm ${plan.highlighted ? "text-blue-100" : "text-slate-600"}`}>
-                                        <svg class={`w-4 h-4 shrink-0 mt-0.5 ${plan.highlighted ? "text-[#ffd400]" : "text-[#0059a6]"}`} fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                        <svg class="w-4 h-4 shrink-0 mt-0.5 text-[#0059a6]" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                         {feature}
@@ -131,15 +131,15 @@ import { PLANS } from "../data/services";
         </section>
 
         <!-- CTA -->
-        <section class="py-16 bg-[#0059a6]">
+        <section class="py-16 bg-white border-t border-slate-100">
             <div class="container-custom text-center reveal">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">¿Tienes dudas sobre qué plan elegir?</h2>
-                <p class="text-blue-100 mb-7 max-w-md mx-auto">Nuestro equipo te asesora sin costo y te recomienda el plan ideal para tu flota.</p>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">¿Tienes dudas sobre qué plan elegir?</h2>
+                <p class="text-slate-500 mb-7 max-w-md mx-auto">Nuestro equipo te asesora sin costo y te recomienda el plan ideal para tu flota.</p>
                 <a
                     href="https://wa.me/573157003022"
                     target="_blank"
                     rel="noopener"
-                    class="inline-flex items-center gap-2 px-8 py-4 bg-[#ffd400] text-[#003d73] font-bold rounded-full hover:bg-yellow-300 transition-colors duration-200"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-[#0059a6] text-white font-bold rounded-full hover:bg-[#004a8c] transition-colors duration-200"
                 >
                     Asesoría gratuita por WhatsApp
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

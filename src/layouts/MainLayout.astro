@@ -25,19 +25,6 @@ import "../styles/global.css";
         <slot />
 
         <!-- Botón flotante RNDC -->
-        <a
-            href="https://rndc.mintransporte.gov.co/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Acceder al RNDC - Ministerio de Transporte"
-            class="rndc-float"
-            title="RNDC - Registro Nacional de Despacho de Carga"
-        >
-            <span class="rndc-label">RNDC</span>
-            <svg class="rndc-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
 
         <script>
             const observer = new IntersectionObserver(
@@ -49,57 +36,12 @@ import "../styles/global.css";
                         }
                     });
                 },
-                { threshold: 0.12 }
+                { threshold: 0.12 },
             );
 
-            document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) =>
-                observer.observe(el)
-            );
+            document
+                .querySelectorAll(".reveal, .reveal-stagger")
+                .forEach((el) => observer.observe(el));
         </script>
     </body>
 </html>
-
-<style>
-    .rndc-float {
-        position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        z-index: 40;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1rem;
-        background: #ffffff;
-        border: 2px solid #0059a6;
-        border-radius: 9999px;
-        color: #0059a6;
-        font-weight: 700;
-        font-size: 0.8rem;
-        text-decoration: none;
-        box-shadow: 0 4px 16px rgba(0, 89, 166, 0.18);
-        transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-        letter-spacing: 0.04em;
-    }
-
-    .rndc-float:hover {
-        background: #0059a6;
-        color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 89, 166, 0.28);
-    }
-
-    .rndc-icon {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
-    }
-
-    @media (max-width: 480px) {
-        .rndc-float {
-            bottom: 1rem;
-            right: 1rem;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.75rem;
-        }
-    }
-</style>

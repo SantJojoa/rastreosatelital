@@ -17,9 +17,9 @@ import { PLANS } from "../data/services";
             {PLANS.map((plan) => (
                 <article class={`relative flex flex-col gap-5 rounded-3xl p-8 border-2 transition-all duration-200 ${
                     plan.highlighted
-                        ? "bg-[#0059a6] border-[#0059a6] shadow-xl shadow-[#0059a6]/20 md:-mt-4 md:mb-4"
+                        ? "bg-white shadow-xl md:-mt-4 md:mb-4"
                         : "bg-white border-slate-200 hover:border-[#0059a6]/40 hover:shadow-lg"
-                }`}>
+                }`} style={plan.highlighted ? "border-color: #0059a6; box-shadow: 0 20px 40px -12px rgba(0,89,166,0.25);" : ""}>
                     {plan.highlighted && (
                         <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#ffd400] text-[#003d73] text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap shadow">
                             ★ Recomendado
@@ -27,20 +27,20 @@ import { PLANS } from "../data/services";
                     )}
 
                     <div>
-                        <h3 class={`text-xl font-extrabold tracking-tight ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
+                        <h3 class="text-xl font-extrabold tracking-tight text-slate-900">
                             {plan.name}
                         </h3>
-                        <p class={`text-sm mt-1.5 leading-relaxed ${plan.highlighted ? "text-blue-200" : "text-slate-500"}`}>
+                        <p class="text-sm mt-1.5 leading-relaxed text-slate-500">
                             {plan.description}
                         </p>
                     </div>
 
-                    <div class={`h-px ${plan.highlighted ? "bg-white/20" : "bg-slate-100"}`}></div>
+                    <div class="h-px bg-slate-100"></div>
 
                     <ul class="flex flex-col gap-2.5 flex-1">
                         {plan.features.map((feature) => (
-                            <li class={`flex items-start gap-2.5 text-sm ${plan.highlighted ? "text-blue-100" : "text-slate-600"}`}>
-                                <svg class={`w-4 h-4 shrink-0 mt-0.5 ${plan.highlighted ? "text-[#ffd400]" : "text-[#0059a6]"}`} fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                            <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                                <svg class="w-4 h-4 shrink-0 mt-0.5 text-[#0059a6]" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                                 {feature}

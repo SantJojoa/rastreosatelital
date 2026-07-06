@@ -13,13 +13,14 @@ const parsed = stats.map(s => {
 });
 ---
 
-<section class="py-16" style="background-color: #0059a6;">
+<section class="py-16 bg-white border-y border-slate-100">
     <div class="container-custom">
-        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20 reveal-stagger">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-100 reveal-stagger">
             {parsed.map((item) => (
                 <div class="flex flex-col items-center justify-center px-8 py-10 text-center">
                     <p
-                        class="text-5xl md:text-6xl font-extrabold text-white tracking-tight stat-number leading-none"
+                        class="text-5xl md:text-6xl font-extrabold tracking-tight stat-number leading-none"
+                        style="color: #0059a6;"
                         data-target={item.number ?? ""}
                         data-prefix={item.prefix}
                         data-suffix={item.suffix}
@@ -27,7 +28,7 @@ const parsed = stats.map(s => {
                     >
                         {item.raw}
                     </p>
-                    <p class="text-slate-400 text-sm font-medium mt-3 max-w-[120px]">{item.title}</p>
+                    <p class="text-slate-500 text-sm font-medium mt-3 max-w-[120px]">{item.title}</p>
                 </div>
             ))}
         </div>
