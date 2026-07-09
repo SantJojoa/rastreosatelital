@@ -8,12 +8,12 @@
         class="max-w-360 mx-auto px-8 h-24 flex items-center justify-between transition-all duration-300"
     >
         <!-- Logo -->
-        <a href="/" class="flex items-center shrink-0">
+        <a href="/" class="flex items-start self-start shrink-0 relative z-10">
             <img
                 id="header-logo"
                 src="/logo.png"
                 alt="Sistemas Virtuales"
-                class="h-20 max-w-64 w-auto object-contain object-left transition-all duration-300"
+                class="logo-outline h-32 max-w-80 w-auto object-contain object-left transition-all duration-300"
             />
         </a>
 
@@ -159,6 +159,10 @@
 </header>
 
 <style>
+    .logo-outline {
+        filter: drop-shadow(0 0 0.2px #000);
+    }
+
     .nav-link {
         position: relative;
         font-size: 0.95rem;
@@ -267,8 +271,8 @@
         const scrolled = window.scrollY > 20;
         inner?.classList.toggle("h-24", !scrolled);
         inner?.classList.toggle("h-16", scrolled);
-        logo?.classList.toggle("h-20", !scrolled);
-        logo?.classList.toggle("h-12", scrolled);
+        logo?.classList.toggle("h-32", !scrolled);
+        logo?.classList.toggle("h-14", scrolled);
         cta?.classList.toggle("px-6", !scrolled);
         cta?.classList.toggle("py-2.5", !scrolled);
         cta?.classList.toggle("px-4", scrolled);
