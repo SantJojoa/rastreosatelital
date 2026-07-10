@@ -24,6 +24,10 @@ export type Service = {
   description: string;
   subServices?: SubService[];
   sections: ServiceSection[];
+  image: string;
+  accent: string;
+  light: string;
+  tag: string;
 };
 
 // ─── Planes (iguales para todos los servicios) ────────────────────────────────
@@ -81,6 +85,10 @@ export const SERVICES: Service[] = [
     subtitle: "para Transporte de Pasajeros",
     description:
       "Monitoreo en tiempo real para flotas de transporte intermunicipal, urbano y especial. Garantiza la seguridad de tus pasajeros, el cumplimiento de rutas y el control total de tu operación.",
+    image: "/references/transporte-pasajeros.jpeg",
+    accent: "#0284c7",
+    light: "#e0f2fe",
+    tag: "FUEC incluido",
     sections: [
       {
         title: "Contador de Pasajeros",
@@ -108,6 +116,10 @@ export const SERVICES: Service[] = [
     subtitle: "para Vehículos Particulares y Motocicletas",
     description:
       "Protege tu vehículo, moto o bicicleta con rastreo preciso las 24 horas. Recibe alertas al instante ante movimientos no autorizados y recupera tu vehículo rápidamente en caso de robo.",
+    image: "/references/moto.jpeg",
+    accent: "#0059a6",
+    light: "#e8f0fb",
+    tag: "Más popular",
     subServices: [
       {
         title: "Rastreo satelital para vehículos particulares",
@@ -143,6 +155,10 @@ export const SERVICES: Service[] = [
     subtitle: "para Maquinaria Amarilla",
     description:
       "Control total de excavadoras, volquetas, retroexcavadoras y equipos pesados. Optimiza el tiempo de uso, previene robos y gestiona el mantenimiento de tu maquinaria desde cualquier lugar.",
+    image: "/references/maquinaria-amarilla.jpeg",
+    accent: "#d97706",
+    light: "#fef3c7",
+    tag: "Sector minero",
     sections: [
       {
         title: "Reportes Especiales",
@@ -167,6 +183,10 @@ export const SERVICES: Service[] = [
     subtitle: "para Transporte de Hidrocarburos",
     description:
       "Monitoreo especializado para cargas peligrosas. Control estricto de rutas, paradas autorizadas y trazabilidad completa del viaje para cumplir con la normatividad del sector hidrocarburífero.",
+    image: "/references/hidro-cargapeligrosa.jpeg",
+    accent: "#dc2626",
+    light: "#fee2e2",
+    tag: "Alta seguridad",
     sections: [
       {
         title: "Reportes Especiales",
@@ -203,6 +223,10 @@ export const SERVICES: Service[] = [
     subtitle: "para Transporte de Carga",
     description:
       "Soluciones especializadas para refrigerados, contenedores y grúas. Monitoreo en tiempo real con sensores de temperatura, candados satelitales y control de planchón desde cualquier lugar.",
+    image: "/references/transporte-carga.jpg",
+    accent: "#7c3aed",
+    light: "#ede9fe",
+    tag: "Sensor incluido",
     sections: [
       {
         title: "Reportes para Refrigerados — Sensores de Temperatura",

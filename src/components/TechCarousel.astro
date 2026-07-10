@@ -15,19 +15,19 @@ const technologies = [
 const items = [...technologies, ...technologies];
 ---
 
-<section class="py-10 bg-slate-50 border-y border-slate-100 overflow-hidden">
+<section class="py-10 bg-white border-y border-slate-100 overflow-hidden">
     <div class="container-custom mb-6">
         <p class="text-center text-slate-500 text-sm font-medium">Tecnología que usamos</p>
     </div>
 
     <div class="relative">
         <!-- Fade masks -->
-        <div class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <div class="tech-track flex gap-5">
             {items.map((tech) => (
-                <div class="shrink-0 flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm">
+                <div class="shrink-0 flex items-center gap-3 border border-[rgba(0,89,166,0.1)] rounded-2xl px-5 py-3.5 shadow-sm" style="background-color: var(--surface-tint);">
                     <div class="w-9 h-9 rounded-xl bg-[#0059a6] flex items-center justify-center shrink-0">
                         <svg class="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d={tech.icon} />

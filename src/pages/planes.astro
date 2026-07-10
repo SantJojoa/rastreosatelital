@@ -35,7 +35,7 @@ import { PLANS } from "../data/services";
         </section>
 
         <!-- Plans section (reuse component but inline so plans are at top) -->
-        <section class="py-20 md:py-28 bg-[#f0f5fb]">
+        <section class="py-20 md:py-28" style="background-color: var(--surface-tint);">
             <div class="container-custom">
                 <div class="grid md:grid-cols-3 gap-5 items-start max-w-5xl mx-auto reveal-stagger">
                     {PLANS.map((plan) => (
@@ -114,7 +114,7 @@ import { PLANS } from "../data/services";
                         { title: "Multiusuarios", desc: "Varios operadores pueden ingresar a la plataforma simultáneamente.", icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
                         { title: "Histórico de viajes", desc: "Consulta rutas pasadas, tiempos y velocidades desde APP o PC.", icon: "M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" },
                     ].map((item) => (
-                        <div class="flex gap-4 p-6 bg-slate-50 rounded-2xl">
+                        <div class="flex gap-4 p-6 rounded-2xl" style="background-color: var(--surface-tint);">
                             <div class="w-10 h-10 rounded-xl bg-[#0059a6] flex items-center justify-center shrink-0">
                                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
@@ -131,7 +131,7 @@ import { PLANS } from "../data/services";
         </section>
 
         <!-- CTA -->
-        <section class="py-16 bg-white border-t border-slate-100">
+        <section class="py-16 border-t border-[rgba(0,89,166,0.08)]" style="background-color: var(--surface-tint);">
             <div class="container-custom text-center reveal">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">¿Tienes dudas sobre qué plan elegir?</h2>
                 <p class="text-slate-500 mb-7 max-w-md mx-auto">Nuestro equipo te asesora sin costo y te recomienda el plan ideal para tu flota.</p>
