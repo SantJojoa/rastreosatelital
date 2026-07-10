@@ -9,12 +9,7 @@ const services = [
         light: "#e8f0fb",
         tag: "Más popular",
         features: ["Botón de pánico", "Apagado remoto", "Historial de viajes", "App Android & iOS"],
-        // SVG path de carro
-        shape: `<circle cx="160" cy="100" r="80" fill="currentColor" opacity="0.08"/>
-                <rect x="40" y="70" width="240" height="80" rx="20" fill="currentColor" opacity="0.15"/>
-                <rect x="80" y="50" width="160" height="50" rx="14" fill="currentColor" opacity="0.12"/>
-                <circle cx="90" cy="155" r="22" fill="currentColor" opacity="0.25"/>
-                <circle cx="230" cy="155" r="22" fill="currentColor" opacity="0.25"/>`,
+        image: "/references/moto.jpeg",
     },
     {
         slug: "transporte-de-pasajeros",
@@ -25,14 +20,7 @@ const services = [
         light: "#e0f2fe",
         tag: "FUEC incluido",
         features: ["Contador de pasajeros", "Módulo FUEC", "Control de velocidad", "Geocercas de ruta"],
-        shape: `<rect x="30" y="55" width="260" height="100" rx="18" fill="currentColor" opacity="0.15"/>
-                <rect x="30" y="55" width="60" height="100" rx="18" fill="currentColor" opacity="0.08"/>
-                <rect x="45" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
-                <rect x="95" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
-                <rect x="145" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
-                <rect x="195" y="72" width="35" height="30" rx="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="75" cy="160" r="20" fill="currentColor" opacity="0.25"/>
-                <circle cx="215" cy="160" r="20" fill="currentColor" opacity="0.25"/>`,
+        image: "/references/transporte-pasajeros.jpeg",
     },
     {
         slug: "maquinaria-amarilla",
@@ -43,14 +31,7 @@ const services = [
         light: "#fef3c7",
         tag: "Sector minero",
         features: ["Horas de trabajo", "Mantenimiento por fecha", "Geocercas de obra", "Consumo de combustible"],
-        shape: `<rect x="60" y="90" width="200" height="70" rx="10" fill="currentColor" opacity="0.15"/>
-                <rect x="180" y="50" width="80" height="70" rx="8" fill="currentColor" opacity="0.12"/>
-                <rect x="20" y="110" width="50" height="20" rx="5" fill="currentColor" opacity="0.2"/>
-                <rect x="250" y="110" width="50" height="20" rx="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="100" cy="165" r="18" fill="currentColor" opacity="0.25"/>
-                <circle cx="220" cy="165" r="18" fill="currentColor" opacity="0.25"/>
-                <rect x="80" y="45" width="8" height="60" rx="4" fill="currentColor" opacity="0.3"/>
-                <rect x="50" y="35" width="45" height="8" rx="4" fill="currentColor" opacity="0.3"/>`,
+        image: "/references/maquinaria-amarilla.jpeg",
     },
     {
         slug: "transporte-de-hidrocarburos",
@@ -61,12 +42,7 @@ const services = [
         light: "#fee2e2",
         tag: "Alta seguridad",
         features: ["Sensores de tapas", "Alertas de ruta", "Trazabilidad completa", "Mantenimiento por km"],
-        shape: `<ellipse cx="160" cy="105" rx="120" ry="50" fill="currentColor" opacity="0.12"/>
-                <rect x="40" y="80" width="240" height="60" rx="30" fill="currentColor" opacity="0.15"/>
-                <rect x="260" y="90" width="40" height="20" rx="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="95" cy="155" r="20" fill="currentColor" opacity="0.25"/>
-                <circle cx="225" cy="155" r="20" fill="currentColor" opacity="0.25"/>
-                <circle cx="160" cy="100" r="12" fill="currentColor" opacity="0.3"/>`,
+        image: "/references/hidro-cargapeligrosa.jpeg",
     },
     {
         slug: "transporte-de-carga",
@@ -77,19 +53,14 @@ const services = [
         light: "#ede9fe",
         tag: "Sensor incluido",
         features: ["Sensor de temperatura", "Candado satelital", "Sensor de planchón", "Control de entregas"],
-        shape: `<rect x="20" y="60" width="260" height="90" rx="12" fill="currentColor" opacity="0.12"/>
-                <rect x="240" y="75" width="60" height="60" rx="10" fill="currentColor" opacity="0.15"/>
-                <rect x="20" y="60" width="80" height="90" rx="12" fill="currentColor" opacity="0.08"/>
-                <circle cx="80" cy="158" r="20" fill="currentColor" opacity="0.25"/>
-                <circle cx="200" cy="158" r="20" fill="currentColor" opacity="0.25"/>
-                <circle cx="265" cy="158" r="16" fill="currentColor" opacity="0.2"/>`,
+        image: "/references/transporte-carga.jpg",
     },
 ];
 ---
 
-<section class="py-24" style="background-color: #f0f5fb;">
+<section class="py-16" style="background-color: #f0f5fb;">
     <div class="container-custom">
-        <div class="mb-14 reveal">
+        <div class="mb-10 reveal">
             <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style="text-wrap: balance;">
                 Soluciones para <span style="color: #0059a6;">cada sector</span>
             </h2>
@@ -103,26 +74,26 @@ const services = [
                 <article
                     class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
                 >
-                    <!-- Colored header band with SVG illustration -->
+                    <!-- Header band with reference photo -->
                     <div
-                        class="relative h-36 flex items-end px-8 pb-6 overflow-hidden"
+                        class="relative h-44 flex items-end px-8 pb-6 overflow-hidden"
                         style={`background-color: ${s.light};`}
                     >
-                        <!-- Decorative SVG shape -->
-                        <svg
-                            class="absolute inset-0 w-full h-full"
-                            viewBox="0 0 320 180"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            style={`color: ${s.accent};`}
+                        <img
+                            src={s.image}
+                            alt={`${s.title} ${s.subtitle}`}
+                            class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div
+                            class="absolute inset-0"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.25) 100%);"
                         >
-                            <Fragment set:html={s.shape} />
-                        </svg>
+                        </div>
 
                         <!-- Tag pill -->
                         {s.tag && (
                             <span
-                                class="relative z-10 px-3 py-1 rounded-full text-xs font-bold text-white"
+                                class="relative z-10 px-3 py-1 rounded-full text-xs font-bold text-white shadow-md"
                                 style={`background-color: ${s.accent};`}
                             >
                                 {s.tag}
@@ -131,7 +102,7 @@ const services = [
 
                         <!-- Icon -->
                         <div
-                            class="absolute top-5 right-6 w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-lg"
+                            class="absolute top-5 right-6 z-10 w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-lg ring-2 ring-white/30"
                             style={`background-color: ${s.accent};`}
                         >
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
