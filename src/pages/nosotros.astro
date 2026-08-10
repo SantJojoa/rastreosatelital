@@ -4,15 +4,10 @@ import Footer from "../components/Footer.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout>
-    <slot name="head" slot="head">
-        <title>Nosotros | Sistemas Virtuales Zona Andina</title>
-        <meta
-            name="description"
-            content="Conozca quiénes somos: 15 años de experiencia en rastreo satelital, administración remota de móviles y cámaras IP en Colombia."
-        />
-    </slot>
-
+<MainLayout
+    title="Nosotros | Sistemas Virtuales Zona Andina"
+    description="Conozca quiénes somos: 15 años de experiencia en rastreo satelital, administración remota de móviles y cámaras IP en Colombia."
+>
     <Header />
 
     <main>

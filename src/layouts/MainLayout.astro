@@ -1,5 +1,39 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+}
+
+const {
+    title = "Sistemas Virtuales | Rastreo Satelital",
+    description = "Sistemas Virtuales - Servicios de tracking y monitoreo vehicular",
+    image = "/logo.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
+
+const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Sistemas Virtuales Zona Andina S.A.S.",
+    image: ogImageURL.toString(),
+    url: Astro.site?.toString(),
+    telephone: ["+573157003022", "+573178235460"],
+    email: "servicliente@sistemasvirtualesltda.com",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Carrera 14 N° 10-83, Barrio San Miguel",
+        addressLocality: "San Juan de Pasto",
+        addressRegion: "Nariño",
+        addressCountry: "CO",
+    },
+    areaServed: "CO",
+    priceRange: "$$",
+};
 ---
 
 <!doctype html>
@@ -7,18 +41,33 @@ import "../styles/global.css";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <slot name="head" />
-        <title>Sistemas Virtuales | Rastreo Satelital</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content="Sistemas Virtuales Zona Andina S.A.S." />
+        <link rel="canonical" href={canonicalURL} />
         <link rel="icon" href="/logo.png" type="image/png" />
-        <meta
-            name="description"
-            content="Sistemas Virtuales - Servicios de tracking y monitoreo vehicular"
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Sistemas Virtuales" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:locale" content="es_CO" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
+
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(localBusinessSchema)}
         />
-        <meta
-            name="keywords"
-            content="rastreo satelital, tracking, monitoreo vehicular"
-        />
-        <meta name="author" content="Rastreo Satelital" />
+
+        <slot name="head" />
     </head>
 
     <body>

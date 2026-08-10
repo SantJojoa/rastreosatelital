@@ -35,12 +35,11 @@ const modalidadIconPaths = [
 ];
 ---
 
-<MainLayout>
-  <slot name="head" slot="head">
-    <title>{title} {subtitle} | Sistemas Virtuales</title>
-    <meta name="description" content={description} />
-  </slot>
-
+<MainLayout
+  title={`${title} ${subtitle} | Sistemas Virtuales`}
+  description={description}
+  image={image}
+>
   <Header />
 
   <main>
