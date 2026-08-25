@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 
 interface Props {
     title?: string;
@@ -72,6 +73,8 @@ const localBusinessSchema = {
 
     <body>
         <slot />
+
+        <WhatsAppFloat />
 
         <!-- Botón flotante RNDC -->
 

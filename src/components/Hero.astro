@@ -1,3 +1,7 @@
+---
+import { SERVICES } from "../data/services";
+---
+
 <section class="relative bg-white overflow-hidden">
     <!-- Decorative background: soft dot grid + blue glow, kept subtle on white -->
     <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none"></div>
@@ -13,13 +17,13 @@
         style="mask-image: linear-gradient(to right, transparent, black 35%); -webkit-mask-image: linear-gradient(to right, transparent, black 35%);"
     />
 
-    <div class="container-custom relative z-10 pt-16 pb-6 md:pt-20 md:pb-8 lg:pt-16 lg:pb-6">
+    <div class="container-custom relative z-10 pt-8 pb-6 md:pt-10 md:pb-8 lg:pt-8 lg:pb-6">
         <div
-            class="flex flex-col gap-5 reveal is-visible max-w-5xl"
+            class="flex flex-col gap-3 reveal is-visible max-w-5xl"
             style="transition-delay:200ms"
         >
             <h1
-                class="text-3xl md:text-4xl xl:text-5xl font-extrabold leading-[1.08] tracking-tight"
+                class="text-2xl md:text-3xl xl:text-4xl font-extrabold leading-[1.08] tracking-tight"
             >
                 <span style="color: #0059a6;">
                     <span id="typewriter-line1"></span>
@@ -30,74 +34,92 @@
             </h1>
 
             <p
-                class="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl"
+                class="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl"
             >
                 Soluciones de rastreo satelital, monitoreo y seguridad para
                 optimizar la gestión de su flota y lo que más importa.
             </p>
 
-            <!-- 4 feature highlights -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-1">
-                {
-                    [
-                        {
-                            label: "Monitoreo en tiempo real",
-                            icon: "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z",
-                        },
-                        {
-                            label: "Seguridad y confiabilidad",
-                            icon: "M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z",
-                        },
-                        {
-                            label: "Reportes inteligentes",
-                            icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
-                        },
-                        {
-                            label: "Soluciones a la medida",
-                            icon: "M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75",
-                        },
-                    ].map((item) => (
-                        <div class="flex flex-col gap-2">
-                            <div
-                                class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                                style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
+            <div class="reveal is-visible" style="transition-delay:300ms">
+                <div
+                    id="hero-carousel"
+                    class="relative w-full h-[160px] sm:h-[220px] lg:h-[260px] rounded-2xl overflow-hidden shadow-xl"
+                >
+                    {
+                        SERVICES.map((service, i) => (
+                            <a
+                                href={`/servicios/${service.slug}`}
+                                class="hero-carousel-slide absolute inset-0 transition-opacity duration-700"
+                                style={`opacity:${i === 0 ? 1 : 0}`}
+                                data-index={i}
                             >
-                                <svg
-                                    class="w-5 h-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d={item.icon}
-                                    />
-                                </svg>
-                            </div>
-                            <span class="text-sm font-semibold text-slate-700 leading-snug">
-                                {item.label}
-                            </span>
-                        </div>
-                    ))
-                }
+                                <img
+                                    src={service.image}
+                                    alt={`${service.title} ${service.subtitle}`}
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                />
+                                <div
+                                    class="absolute inset-0"
+                                    style="background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0.1) 62%, rgba(0,0,0,0.05) 100%);"
+                                />
+                                <div class="relative z-10 h-full flex flex-col justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 lg:px-8 max-w-xl text-white">
+                                    {service.tag && (
+                                        <span
+                                            class="inline-flex self-start px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-md"
+                                            style={`background-color: ${service.accent};`}
+                                        >
+                                            {service.tag}
+                                        </span>
+                                    )}
+                                    <h3 class="text-base sm:text-xl lg:text-2xl font-extrabold leading-tight">
+                                        {service.title}
+                                        <span class="block text-xs sm:text-sm font-semibold opacity-90 mt-0.5">
+                                            {service.subtitle}
+                                        </span>
+                                    </h3>
+                                    <p class="hidden lg:block text-xs text-white/85 leading-relaxed max-w-md line-clamp-2">
+                                        {service.description}
+                                    </p>
+                                    <span class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm mt-0.5">
+                                        Ver servicio
+                                        <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                        ))
+                    }
+
+                    <div class="absolute bottom-2 sm:bottom-3 inset-x-0 z-10 flex justify-center gap-1.5">
+                        {
+                            SERVICES.map((_, i) => (
+                                <button
+                                    type="button"
+                                    class="hero-carousel-dot w-1.5 h-1.5 rounded-full transition-colors duration-200"
+                                    style={`background-color: rgba(255,255,255,${i === 0 ? 1 : 0.4});`}
+                                    data-index={i}
+                                    aria-label={`Ver servicio ${i + 1}`}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
 
-            <!-- Two platform cards -->
-            <div class="grid sm:grid-cols-2 gap-4 items-stretch">
-                <!-- Plataforma completa: highlighted -->
+            <!-- Three main CTA cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
+                <!-- Rastreo Vehicular GPS: highlighted -->
                 <a
                     href="/planes"
-                    class="platform-glow group relative rounded-3xl p-5 flex flex-col gap-3 overflow-hidden transition-transform duration-300 hover:-translate-y-1.5 shadow-xl"
+                    class="platform-glow group relative rounded-2xl p-3.5 flex flex-col gap-2 overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg"
                     style="background-color: #0059a6;"
                 >
                     <div
-                        class="w-10 h-10 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                        class="w-8 h-8 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
                     >
                         <svg
-                            class="w-5 h-5"
+                            class="w-4 h-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
@@ -107,27 +129,27 @@
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+                                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                             ></path>
                         </svg>
                     </div>
-                    <div class="flex flex-col gap-1.5">
-                        <h3 class="text-lg font-bold text-white">
-                            Plataforma completa
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-sm font-bold text-white">
+                            Rastreo Vehicular GPS
                         </h3>
-                        <p class="text-blue-100 text-sm leading-relaxed">
-                            Solución robusta con gestión avanzada de flotas,
-                            control de tráfico, reportes completos, cumplimiento
-                            RNDC y PESV, y mucho más.
+                        <p class="text-blue-100 text-xs leading-relaxed line-clamp-2">
+                            Monitorea tu flota en tiempo real, controla rutas y
+                            protege tus vehículos con la plataforma líder en
+                            rastreo satelital.
                         </p>
                     </div>
                     <span
-                        class="mt-auto inline-flex items-center justify-center gap-1.5 text-sm font-bold px-5 py-2 rounded-full self-start group-hover:gap-2.5 transition-all duration-200"
+                        class="mt-auto inline-flex items-center justify-center gap-1 text-xs font-bold px-3.5 py-1.5 rounded-full self-start group-hover:gap-2 transition-all duration-200"
                         style="background-color: #ffd400; color: #003d73;"
                     >
-                        Ingresar
+                        Ver planes
                         <svg
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -140,18 +162,18 @@
                     </span>
                 </a>
 
-                <!-- Plataforma básica -->
+                <!-- Cámaras de Seguridad -->
                 <a
-                    href="/planes"
-                    class="group relative rounded-3xl p-7 flex flex-col gap-4 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
+                    href="#camaras"
+                    class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
                     style="background-color: var(--surface-tint);"
                 >
                     <div
-                        class="w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                         style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
                     >
                         <svg
-                            class="w-6 h-6"
+                            class="w-4 h-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
@@ -161,27 +183,81 @@
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
                             ></path>
                         </svg>
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <h3 class="text-xl font-bold text-slate-900">
-                            Plataforma básica
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-sm font-bold text-slate-900">
+                            Cámaras de Seguridad
                         </h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">
-                            Solución simple y eficiente: monitoreo esencial de
-                            vehículos en tiempo real, históricos, alertas y
-                            geocercas.
+                        <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
+                            Vigilancia inteligente para tu vehículo, negocio o
+                            vivienda con tecnología de última generación.
                         </p>
                     </div>
                     <span
-                        class="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold"
+                        class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
                         style="color: #0059a6;"
                     >
-                        Ingresar
+                        Conocer más
                         <svg
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Seguros -->
+                <a
+                    href="https://api.whatsapp.com/send?phone=573157003022&text=Hola%2C%20quiero%20información%20sobre%20seguros."
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
+                    style="background-color: var(--surface-tint);"
+                >
+                    <div
+                        class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 3l7.5 3v5.25c0 4.9-3.2 8.99-7.5 10.5-4.3-1.51-7.5-5.6-7.5-10.5V6l7.5-3z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-sm font-bold text-slate-900">
+                            Seguros
+                        </h3>
+                        <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
+                            Cotiza pólizas de seguros para tu vehículo y
+                            protege tu inversión ante cualquier eventualidad.
+                        </p>
+                    </div>
+                    <span
+                        class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
+                        style="color: #0059a6;"
+                    >
+                        Conocer más
+                        <svg
+                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -249,4 +325,47 @@
     }
 
     typeLine1();
+</script>
+
+<script>
+    const slides = document.querySelectorAll<HTMLAnchorElement>(
+        "#hero-carousel .hero-carousel-slide",
+    );
+    const dots = document.querySelectorAll<HTMLButtonElement>(
+        "#hero-carousel .hero-carousel-dot",
+    );
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function showSlide(index: number) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+            slide.style.pointerEvents = i === index ? "auto" : "none";
+        });
+        dots.forEach((dot, i) => {
+            dot.style.backgroundColor = `rgba(255,255,255,${i === index ? 1 : 0.4})`;
+        });
+        current = index;
+    }
+
+    function next() {
+        showSlide((current + 1) % slides.length);
+    }
+
+    function restartTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 3000);
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener("click", (e) => {
+            e.preventDefault();
+            showSlide(i);
+            restartTimer();
+        });
+    });
+
+    if (slides.length > 1) {
+        restartTimer();
+    }
 </script>

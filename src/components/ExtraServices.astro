@@ -1,4 +1,4 @@
-<section class="py-16 bg-white dot-grid">
+<section id="camaras" class="py-16 bg-white dot-grid">
     <div class="container-custom">
         <div class="mb-10 reveal">
             <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -154,6 +154,55 @@
                     style="background-color: #ffd400; color: #003d73;"
                 >
                     Solicitar información
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                </a>
+            </article>
+
+            <!-- Kit Cámaras de Seguridad x4: full width -->
+            <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col md:flex-row md:items-center gap-8 lg:col-span-3 text-white" style="background: linear-gradient(120deg, #0059a6 0%, #003d73 100%);">
+                <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(255,212,0,0.12);"></div>
+                <div class="absolute -bottom-10 left-1/3 w-40 h-40 rounded-full blur-2xl pointer-events-none" style="background-color: rgba(255,255,255,0.06);"></div>
+
+                <div class="relative z-10 flex items-start gap-5 md:flex-1">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 bg-white/15 border border-white/25 group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <h3 class="text-xl font-bold">Kit de Cámaras de Seguridad x4</h3>
+                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold" style="background-color: #ffd400; color: #003d73;">Nuevo</span>
+                        </div>
+                        <p class="text-blue-100 text-sm mb-4">Paquete completo de 4 cámaras para tu negocio o vivienda</p>
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {[
+                                "4 cámaras Full HD",
+                                "Visión nocturna",
+                                "Detección de movimiento",
+                                "Grabación en la nube",
+                                "Monitoreo desde la APP",
+                                "Instalación profesional incluida",
+                            ].map((item) => (
+                                <div class="flex items-center gap-2.5 text-blue-50 text-sm">
+                                    <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-white/15 border border-white/25">
+                                        <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </span>
+                                    {item}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <a
+                    href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20el%20kit%20de%20c%C3%A1maras%20de%20seguridad%20x4."
+                    target="_blank"
+                    rel="noopener"
+                    class="relative z-10 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap self-start md:self-center transition-colors duration-200"
+                    style="background-color: #ffd400; color: #003d73;"
+                >
+                    Solicitar cotización
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
                 </a>
             </article>
