@@ -2,13 +2,14 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import Plans from "../components/Plans.astro";
+import Features from "../components/Features.astro";
+import Services from "../components/Services.astro";
 import { PLANS } from "../data/services";
 ---
 
 <MainLayout
-    title="Planes de Rastreo Satelital | Sistemas Virtuales"
-    description="Conoce los planes de rastreo satelital de Sistemas Virtuales: Básico, Administrativo y Extra. Todos con instalación profesional y soporte 24/7."
+    title="Rastreo Vehicular GPS | Soluciones por Sector y Planes | Sistemas Virtuales"
+    description="Plataforma de rastreo satelital GPS con monitoreo en tiempo real, soluciones para cada sector de transporte y planes desde Básico hasta Extra. Instalación profesional y soporte 24/7."
 >
     <Header />
 
@@ -21,20 +22,30 @@ import { PLANS } from "../data/services";
             <div class="container-custom relative z-10 text-center">
                 <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style="background-color: rgba(0,89,166,0.08); border: 1px solid rgba(0,89,166,0.2);">
                     <span class="w-1.5 h-1.5 rounded-full" style="background-color: #0059a6;"></span>
-                    <span class="text-sm font-medium" style="color: #0059a6;">Precios según tamaño de flota</span>
+                    <span class="text-sm font-medium" style="color: #0059a6;">Monitoreo satelital en tiempo real</span>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-5" style="text-wrap: balance;">
-                    Planes de Rastreo Satelital
+                    Rastreo Vehicular GPS
                 </h1>
                 <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                    Instalación profesional, soporte técnico 24/7 y tecnología de punta. Elige el plan que se adapta a tu operación.
+                    Monitorea, controla y protege tu flota en tiempo real. Descubre todo lo que incluye la plataforma, encuentra la solución para tu sector y elige el plan que se adapta a tu operación.
                 </p>
             </div>
         </section>
 
+        <!-- Todo lo que necesitas en un solo lugar -->
+        <Features />
+
+        <!-- Soluciones para cada sector -->
+        <Services />
+
         <!-- Plans section (reuse component but inline so plans are at top) -->
-        <section class="py-20 md:py-28" style="background-color: var(--surface-tint);">
+        <section id="planes" class="py-20 md:py-28" style="background-color: var(--surface-tint);">
             <div class="container-custom">
+                <div class="max-w-xl mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Elige tu plan</h2>
+                    <p class="text-slate-500">Precios según el tamaño de tu flota. Todos incluyen instalación profesional y soporte técnico 24/7.</p>
+                </div>
                 <div class="grid md:grid-cols-3 gap-5 items-start max-w-5xl mx-auto reveal-stagger">
                     {PLANS.map((plan) => (
                         <article class={`relative flex flex-col gap-5 rounded-3xl p-8 border-2 transition-all duration-200 ${

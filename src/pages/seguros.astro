@@ -1,0 +1,87 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Seguros para tu Vehículo y Flota | Sistemas Virtuales"
+    description="Cotiza pólizas de seguros para tu vehículo o flota con asesoría personalizada y respuesta rápida por WhatsApp."
+>
+    <Header />
+
+    <main>
+        <!-- Hero -->
+        <section class="bg-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-slate-100">
+            <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none"></div>
+            <div class="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 pointer-events-none" style="background-color: rgba(0,89,166,0.06);"></div>
+
+            <div class="container-custom relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style="background-color: rgba(0,89,166,0.08); border: 1px solid rgba(0,89,166,0.2);">
+                    <span class="w-1.5 h-1.5 rounded-full" style="background-color: #0059a6;"></span>
+                    <span class="text-sm font-medium" style="color: #0059a6;">Protege tu inversión</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-5" style="text-wrap: balance;">
+                    Seguros para tu Vehículo y Flota
+                </h1>
+                <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Cotiza pólizas de seguros para tu vehículo y protege tu inversión ante cualquier eventualidad, con asesoría personalizada y respuesta rápida.
+                </p>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section class="py-20 bg-white dot-grid">
+            <div class="container-custom">
+                <div class="max-w-xl mb-12 reveal">
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">¿Por qué cotizar con nosotros?</h2>
+                    <p class="text-slate-500">Acompañamiento cercano en cada paso, desde la cotización hasta un eventual siniestro.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger">
+                    {[
+                        { title: "Asesoría personalizada", desc: "Te ayudamos a encontrar la cobertura que se ajusta a tu vehículo o flota.", icon: "M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" },
+                        { title: "Cotización rápida por WhatsApp", desc: "Envíanos los datos de tu vehículo y recibe una respuesta ágil.", icon: "M2.25 12.76c0 1.6.988 3.032 2.446 3.586l1.657.633c.982.375 1.647 1.328 1.647 2.408v.263a1.5 1.5 0 001.5 1.5h.5a1.5 1.5 0 001.5-1.5v-.263c0-1.08.665-2.033 1.647-2.408l1.657-.633a3.836 3.836 0 002.446-3.586V9.75a7.5 7.5 0 10-15 0v3.01z" },
+                        { title: "Cobertura para tu flota", desc: "Vehículos particulares, de carga o de pasajeros dentro de una misma póliza.", icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" },
+                        { title: "Acompañamiento en siniestros", desc: "Te guiamos en el proceso para que resolver un siniestro sea más sencillo.", icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" },
+                        { title: "Sin costo por la asesoría", desc: "Cotizar y recibir orientación con nuestro equipo no tiene ningún costo.", icon: "M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                        { title: "Trato directo", desc: "Un mismo equipo te atiende desde la cotización hasta la renovación.", icon: "M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" },
+                    ].map((item) => (
+                        <div class="flex gap-4 p-6 rounded-2xl" style="background-color: var(--surface-tint);">
+                            <div class="w-10 h-10 rounded-xl bg-[#0059a6] flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base">{item.title}</h3>
+                                <p class="text-slate-500 text-sm mt-1 leading-relaxed">{item.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 border-t border-[rgba(0,89,166,0.08)]" style="background-color: var(--surface-tint);">
+            <div class="container-custom text-center reveal">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">¿Listo para cotizar tu seguro?</h2>
+                <p class="text-slate-500 mb-7 max-w-md mx-auto">Cuéntanos sobre tu vehículo o flota y te enviamos una cotización sin compromiso.</p>
+                <a
+                    href="https://api.whatsapp.com/send?phone=573157003022&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20seguros."
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-[#0059a6] text-white font-bold rounded-full hover:bg-[#004a8c] transition-colors duration-200"
+                >
+                    Cotizar por WhatsApp
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</MainLayout>

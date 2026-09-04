@@ -1,0 +1,215 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Cámaras de Seguridad | Vehiculares y Residenciales | Sistemas Virtuales"
+    description="Cámaras vehiculares, residenciales con IA y kits de cámaras de seguridad para tu vehículo, negocio o vivienda, con instalación profesional incluida."
+>
+    <Header />
+
+    <main>
+        <!-- Hero -->
+        <section class="bg-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-slate-100">
+            <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none"></div>
+            <div class="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 pointer-events-none" style="background-color: rgba(0,89,166,0.06);"></div>
+
+            <div class="container-custom relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style="background-color: rgba(0,89,166,0.08); border: 1px solid rgba(0,89,166,0.2);">
+                    <span class="w-1.5 h-1.5 rounded-full" style="background-color: #0059a6;"></span>
+                    <span class="text-sm font-medium" style="color: #0059a6;">Vigilancia inteligente con IA</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-5" style="text-wrap: balance;">
+                    Cámaras de Seguridad
+                </h1>
+                <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Vigilancia inteligente para tu vehículo, negocio o vivienda, con instalación profesional y tecnología de última generación.
+                </p>
+            </div>
+        </section>
+
+        <!-- Cámaras -->
+        <section class="py-20 md:py-28 bg-white dot-grid">
+            <div class="container-custom">
+                <div class="grid gap-5 reveal-stagger">
+
+                    <!-- Cámaras vehiculares -->
+                    <article class="group relative rounded-3xl overflow-hidden flex flex-col md:flex-row bg-white border border-slate-100 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                        <div class="relative w-full md:w-2/5 h-56 md:h-auto overflow-hidden">
+                            <img
+                                src="/references/vehicles-cameras.webp"
+                                alt="Cámaras Vehiculares"
+                                class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%);"></div>
+                            <span class="absolute top-5 left-5 px-3 py-1 rounded-full text-xs font-bold text-white shadow-md" style="background-color: #0059a6;">Vigilancia 24/7</span>
+                        </div>
+
+                        <div class="relative z-10 p-8 flex flex-col gap-6 flex-1">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">Cámaras Vehiculares</h3>
+                                <p class="font-medium text-sm mt-0.5" style="color: #0059a6;">Vigilancia a bordo 24/7</p>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 flex-1">
+                                {[
+                                    "Reconocimiento de rostro",
+                                    "Grabación Full HD",
+                                    "Visión nocturna",
+                                    "Grabación hasta 3 meses",
+                                    "Memoria SD hasta 256 GB",
+                                    "Transmisión en línea vía WiFi",
+                                    "Reproducción desde APP o PC",
+                                ].map((item) => (
+                                    <div class="flex items-center gap-2.5 text-slate-600 text-sm">
+                                        <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style="background-color: rgba(0,89,166,0.1); border: 1px solid rgba(0,89,166,0.25);">
+                                            <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" style="color: #0059a6;">
+                                                <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        {item}
+                                    </div>
+                                ))}
+                            </div>
+
+                            <a
+                                href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20c%C3%A1maras%20vehiculares."
+                                target="_blank"
+                                rel="noopener"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-colors duration-200 self-start"
+                                style="background-color: #ffd400; color: #003d73;"
+                            >
+                                Solicitar información
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Cámaras residenciales -->
+                    <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col gap-6 bg-white border border-slate-100 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                        <div class="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(0,89,166,0.06);"></div>
+
+                        <div class="relative z-10 flex items-start gap-5">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300" style="background-color: rgba(0,89,166,0.08); color: #0059a6;">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">Cámaras Residenciales</h3>
+                                <p class="font-medium text-sm mt-0.5" style="color: #0059a6;">Vigilancia inteligente con IA</p>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2.5 flex-1">
+                            {[
+                                "Detección de personas con IA",
+                                "Luz estroboscópica",
+                                "Audio doble vía",
+                                "Alarma por detección de rostro",
+                                "Memoria SD hasta 256 GB",
+                                "Alarma inteligente con IA",
+                                "Zona de alerta personalizada",
+                                "Visión nocturna a color",
+                                "Cámaras PTZ, 360° y 180°",
+                            ].map((item) => (
+                                <div class="flex items-center gap-2.5 text-slate-600 text-sm">
+                                    <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style="background-color: rgba(0,89,166,0.1); border: 1px solid rgba(0,89,166,0.25);">
+                                        <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" style="color: #0059a6;">
+                                            <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                    {item}
+                                </div>
+                            ))}
+                        </div>
+
+                        <a
+                            href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20c%C3%A1maras%20residenciales."
+                            target="_blank"
+                            rel="noopener"
+                            class="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-colors duration-200 self-start"
+                            style="background-color: #ffd400; color: #003d73;"
+                        >
+                            Solicitar información
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- Kit Cámaras de Seguridad x4 -->
+                    <article class="group relative rounded-3xl p-8 overflow-hidden flex flex-col md:flex-row md:items-center gap-8 text-white" style="background: linear-gradient(120deg, #0059a6 0%, #003d73 100%);">
+                        <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl pointer-events-none" style="background-color: rgba(255,212,0,0.12);"></div>
+                        <div class="absolute -bottom-10 left-1/3 w-40 h-40 rounded-full blur-2xl pointer-events-none" style="background-color: rgba(255,255,255,0.06);"></div>
+
+                        <div class="relative z-10 flex items-start gap-5 md:flex-1">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 bg-white/15 border border-white/25 group-hover:scale-110 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <h3 class="text-xl font-bold">Kit de Cámaras de Seguridad x4</h3>
+                                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold" style="background-color: #ffd400; color: #003d73;">Nuevo</span>
+                                </div>
+                                <p class="text-blue-100 text-sm mb-4">Paquete completo de 4 cámaras para tu negocio o vivienda</p>
+                                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2">
+                                    {[
+                                        "4 cámaras Full HD",
+                                        "Visión nocturna",
+                                        "Detección de movimiento",
+                                        "Grabación en la nube",
+                                        "Monitoreo desde la APP",
+                                        "Instalación profesional incluida",
+                                    ].map((item) => (
+                                        <div class="flex items-center gap-2.5 text-blue-50 text-sm">
+                                            <span class="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-white/15 border border-white/25">
+                                                <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            </span>
+                                            {item}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="https://wa.me/573157003022?text=Hola%2C%20me%20interesa%20el%20kit%20de%20c%C3%A1maras%20de%20seguridad%20x4."
+                            target="_blank"
+                            rel="noopener"
+                            class="relative z-10 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap self-start md:self-center transition-colors duration-200"
+                            style="background-color: #ffd400; color: #003d73;"
+                        >
+                            Solicitar cotización
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 border-t border-[rgba(0,89,166,0.08)]" style="background-color: var(--surface-tint);">
+            <div class="container-custom text-center reveal">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">¿Tienes dudas sobre qué producto elegir?</h2>
+                <p class="text-slate-500 mb-7 max-w-md mx-auto">Nuestro equipo te asesora sin costo y te recomienda la mejor solución para tu vivienda o negocio.</p>
+                <a
+                    href="https://wa.me/573157003022"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-[#0059a6] text-white font-bold rounded-full hover:bg-[#004a8c] transition-colors duration-200"
+                >
+                    Asesoría gratuita por WhatsApp
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</MainLayout>
