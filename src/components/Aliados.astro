@@ -1,5 +1,5 @@
-<section class="py-14 border-y border-[rgba(0,89,166,0.08)]" style="background-color: var(--surface-tint);">
-    <div class="container-custom mb-8 flex items-center gap-4 reveal">
+<section class="aliados-strip border-y border-[rgba(0,89,166,0.08)]">
+    <div class="container-custom aliados-heading mb-8 flex items-center gap-4 reveal">
         <div class="h-px flex-1 bg-[rgba(0,89,166,0.12)]"></div>
         <p class="text-slate-500 text-sm font-medium shrink-0">Empresas que confían en nosotros</p>
         <div class="h-px flex-1 bg-[rgba(0,89,166,0.12)]"></div>
@@ -7,9 +7,9 @@
 
     <div class="relative overflow-hidden">
         <!-- Fade left -->
-        <div class="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[var(--surface-tint)] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute left-0 top-0 h-full aliados-fade aliados-fade-left z-10 pointer-events-none"></div>
         <!-- Fade right -->
-        <div class="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[var(--surface-tint)] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 h-full aliados-fade aliados-fade-right z-10 pointer-events-none"></div>
 
         <div class="logo-track">
             {[
@@ -18,7 +18,7 @@
                 "empopasto", "montagas", "transipiales", "acar",
                 "consorcio", "ecos", "electro", "tax", "tina",
             ].map((name) => (
-                <div class="flex items-center justify-center px-10 shrink-0 w-56 h-24">
+                <div class="aliados-logo flex items-center justify-center shrink-0">
                     <img
                         src={`/aliados/${name}.png`}
                         alt={name}
@@ -29,3 +29,68 @@
         </div>
     </div>
 </section>
+
+<style>
+    /* Franja fija y compacta (en todos los tamaños de pantalla): no ocupa
+       una sección, solo un indicador discreto de confianza siempre visible
+       al pie de la pantalla mientras el usuario navega. */
+    .aliados-strip {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        padding-block: 0.4375rem;
+        border-top: 1px solid rgba(0, 89, 166, 0.12);
+        border-bottom: none;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .aliados-heading {
+        display: none;
+    }
+
+    .aliados-logo {
+        width: 5rem;
+        height: 2.5rem;
+        padding-inline: 0.5rem;
+    }
+
+    .aliados-fade {
+        width: 1.75rem;
+    }
+
+    .aliados-fade-left {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+    }
+
+    .aliados-fade-right {
+        background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+    }
+
+    /* Reserva espacio al final de la página para que la franja fija
+       no tape el footer, y sube el botón de WhatsApp para que no se
+       encimen entre sí. */
+    :global(body) {
+        padding-bottom: 3.375rem;
+    }
+
+    :global(body:has(.aliados-strip) .whatsapp-float) {
+        bottom: 3.75rem;
+    }
+
+    /* Un poco más de aire por logo en pantallas anchas, sin engordar
+       la franja. */
+    @media (min-width: 768px) {
+        .aliados-logo {
+            width: 7rem;
+            padding-inline: 0.875rem;
+        }
+
+        .aliados-fade {
+            width: 3rem;
+        }
+    }
+</style>
