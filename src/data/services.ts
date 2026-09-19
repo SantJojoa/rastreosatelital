@@ -82,30 +82,25 @@ export const SERVICES: Service[] = [
   {
     slug: "transporte-de-pasajeros",
     title: "Rastreo Satelital",
-    subtitle: "para Transporte de Pasajeros",
+    subtitle: "para Transporte de Pasajeros y Servicio Especial - PESV ",
     description:
       "Monitoreo en tiempo real para flotas de transporte intermunicipal, urbano y especial. Garantiza la seguridad de tus pasajeros, el cumplimiento de rutas y el control total de tu operación.",
-    image: "/references/transporte-pasajeros.jpeg",
+    image: "/services_images/transporte_pasajeros_image.webp",
     accent: "#0284c7",
     light: "#e0f2fe",
     tag: "FUEC incluido",
     sections: [
       {
-        title: "Contador de Pasajeros",
+        title: "Reportes para el cumplimiento del PESV",
         items: [
-          "Contador de pasajeros",
-          "Contabilizador por días",
-          "Contabilizador por horas",
-          "Contabilizador por km recorridos",
-          "Registro de productividad del vehículo por número de pasajeros",
+          "Preoperacional",
         ],
       },
       {
-        title: "Módulo FUEC",
+        title: "FUEC",
         items: [
-          "Generación del FUEC desde la plataforma o en línea",
-          "Bloqueo de generación de FUEC por documentación vencida",
-          "Descarga de código QR",
+          "Mantenimientos Preventivos",
+          "Promedio de Gasto de Combustible",
         ],
       },
     ],
@@ -113,10 +108,10 @@ export const SERVICES: Service[] = [
   {
     slug: "vehiculos-particulares",
     title: "Rastreo Satelital",
-    subtitle: "para Vehículos Particulares y Motocicletas",
+    subtitle: "para Motocicletas",
     description:
-      "Protege tu vehículo, moto o bicicleta con rastreo preciso las 24 horas. Recibe alertas al instante ante movimientos no autorizados y recupera tu vehículo rápidamente en caso de robo.",
-    image: "/references/moto.jpeg",
+      "Rastrea y apaga tu motocicleta desde el ceulular, recibe alertas en tiempo real.",
+    image: "/services_images/moto_image.webp",
     accent: "#0059a6",
     light: "#e8f0fb",
     tag: "Más popular",
@@ -151,10 +146,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "maquinaria-amarilla",
-    title: "Rastreo Satelital",
+    title: "GPS",
     subtitle: "para Maquinaria Amarilla",
     description:
-      "Control total de excavadoras, volquetas, retroexcavadoras y equipos pesados. Optimiza el tiempo de uso, previene robos y gestiona el mantenimiento de tu maquinaria desde cualquier lugar.",
+      "Reporte de horas trabajadas, motor encendido, estamos habilitados por Policía Nacional.",
     image: "/references/maquinaria-amarilla.jpeg",
     accent: "#d97706",
     light: "#fef3c7",
@@ -223,7 +218,7 @@ export const SERVICES: Service[] = [
     subtitle: "para Transporte de Carga",
     description:
       "Soluciones especializadas para refrigerados, contenedores y grúas. Monitoreo en tiempo real con sensores de temperatura, candados satelitales y control de planchón desde cualquier lugar.",
-    image: "/references/transporte-carga.jpg",
+    image: "/services_images/transporte_carga_image.webp",
     accent: "#7c3aed",
     light: "#ede9fe",
     tag: "Sensor incluido",
