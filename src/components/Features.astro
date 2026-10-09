@@ -1,109 +1,257 @@
 <section class="py-12 bg-white dot-grid">
     <div class="container-custom">
         <div class="mb-10 reveal">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-xl" style="text-wrap: balance;">
-                Todo lo que necesitas en
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-xl"
+                style="text-wrap: balance;"
+            >
+                Todo lo que necesita en
                 <span style="color: #0059a6;"> un solo lugar</span>
             </h2>
-            <p class="text-slate-500 mt-4 max-w-lg text-base">Monitorea, controla y protege tu flota desde una sola plataforma — en la web y en tu celular.</p>
+            <p class="text-slate-500 mt-4 max-w-lg text-base">
+                Monitoree, controle y proteja su flota desde una sola plataforma
+                — en la web y en su celular.
+            </p>
         </div>
 
         <!-- Cards distribuidas en grilla uniforme -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 reveal-stagger">
-
-            <!-- Card: Rastreo en tiempo real -->
             <article
                 class="group relative rounded-3xl p-6 overflow-hidden flex flex-col gap-3 bg-white border-2"
                 style="border-color: rgba(0,89,166,0.15);"
             >
                 <!-- Mapa SVG decorativo de fondo -->
-                <div class="absolute inset-0 opacity-[0.06] pointer-events-none overflow-hidden rounded-3xl">
-                    <svg width="100%" height="100%" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="100" x2="300" y2="100" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="0" y1="200" x2="300" y2="200" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="0" y1="300" x2="300" y2="300" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="0" y1="400" x2="300" y2="400" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="60" y1="0" x2="60" y2="500" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="150" y1="0" x2="150" y2="500" stroke="#0059a6" stroke-width="1"/>
-                        <line x1="240" y1="0" x2="240" y2="500" stroke="#0059a6" stroke-width="1"/>
-                        <polyline points="20,320 80,280 130,250 180,230 240,170 290,140" stroke="#0059a6" stroke-width="2" fill="none" stroke-dasharray="6 3"/>
-                        <circle cx="180" cy="230" r="8" fill="#ffd400" opacity="0.9"/>
-                        <circle cx="180" cy="230" r="16" fill="#ffd400" opacity="0.3"/>
-                        <circle cx="80" cy="280" r="5" fill="#0059a6" opacity="0.6"/>
-                        <circle cx="240" cy="170" r="5" fill="#0059a6" opacity="0.6"/>
+                <div
+                    class="absolute inset-0 opacity-[0.06] pointer-events-none overflow-hidden rounded-3xl"
+                >
+                    <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 300 500"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <line
+                            x1="0"
+                            y1="100"
+                            x2="300"
+                            y2="100"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="0"
+                            y1="200"
+                            x2="300"
+                            y2="200"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="0"
+                            y1="300"
+                            x2="300"
+                            y2="300"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="0"
+                            y1="400"
+                            x2="300"
+                            y2="400"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="60"
+                            y1="0"
+                            x2="60"
+                            y2="500"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="150"
+                            y1="0"
+                            x2="150"
+                            y2="500"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <line
+                            x1="240"
+                            y1="0"
+                            x2="240"
+                            y2="500"
+                            stroke="#0059a6"
+                            stroke-width="1"></line>
+                        <polyline
+                            points="20,320 80,280 130,250 180,230 240,170 290,140"
+                            stroke="#0059a6"
+                            stroke-width="2"
+                            fill="none"
+                            stroke-dasharray="6 3"></polyline>
+                        <circle
+                            cx="180"
+                            cy="230"
+                            r="8"
+                            fill="#ffd400"
+                            opacity="0.9"></circle>
+                        <circle
+                            cx="180"
+                            cy="230"
+                            r="16"
+                            fill="#ffd400"
+                            opacity="0.3"></circle>
+                        <circle
+                            cx="80"
+                            cy="280"
+                            r="5"
+                            fill="#0059a6"
+                            opacity="0.6"></circle>
+                        <circle
+                            cx="240"
+                            cy="170"
+                            r="5"
+                            fill="#0059a6"
+                            opacity="0.6"></circle>
                     </svg>
                 </div>
 
-                <div class="relative z-10 w-10 h-10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background-color: rgba(0,89,166,0.08); color: #0059a6;">
+                <div
+                    class="relative z-10 w-10 h-10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
                     </svg>
                 </div>
                 <div class="relative z-10 flex flex-col gap-2 flex-1">
-                    <h3 class="text-lg font-bold text-slate-900">Rastreo en Tiempo Real</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Ubica de manera fácil e inmediata tus vehículos de forma ininterrumpida. Sin puntos ciegos, sin demoras.
-                    </p>
-                </div>
-                <div class="relative z-10 flex items-center gap-2 mt-auto bg-slate-50 rounded-2xl px-3 py-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shrink-0"></span>
-                    <span class="text-slate-500 text-xs font-medium">Actualización cada 30 segundos</span>
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Administración de Flotas
+                        </h3>
+                        <p class="text-slate-700 text-sm font-medium leading-relaxed">
+                            Controle vehículos, recorridos, tiempos y operación.
+                        </p>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Herramientas para gestión y seguridad vial PESV. Cámaras con IA Dash Cam, con hábitos de conducción.
+                        </p>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card: Alertas en tiempo real -->
-            <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
+            <article
+                class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300"
+            >
+                <div
+                    class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                    style="background-color: #0059a6;"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"></path>
                     </svg>
                 </div>
-                <div class="flex flex-col gap-1.5 flex-1">
-                    <h3 class="text-base font-bold text-slate-900">Alertas en Tiempo Real</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Notificaciones instantáneas por exceso de velocidad, salida de zona asignada o apertura de puertas no autorizada.</p>
+                <div class="flex flex-col gap-4 flex-1">
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Inspección Preoperacional
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Digitalice el chequeo diario de sus vehículos.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Gestión de Mantenimiento
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Programe mantenimientos y reciba alertas.
+                        </p>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card: Supervisión de Combustible -->
-            <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
+            <article
+                class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300"
+            >
+                <div
+                    class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                    style="background-color: #0059a6;"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
                     </svg>
                 </div>
-                <div class="flex flex-col gap-1.5 flex-1">
-                    <h3 class="text-base font-bold text-slate-900">Supervisión de Combustible</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Mantente al tanto del consumo y mantenimiento con análisis del comportamiento de conducción.</p>
+                <div class="flex flex-col gap-4 flex-1">
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Gestión Documental
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Controle documentos y fechas de vencimiento.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Reportes y Analítica
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Convierta los datos de su flota en información.
+                        </p>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card: Optimización de Rutas -->
-            <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
+            <article
+                class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300"
+            >
+                <div
+                    class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                    style="background-color: #0059a6;"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
                     </svg>
                 </div>
-                <div class="flex flex-col gap-1.5 flex-1">
-                    <h3 class="text-base font-bold text-slate-900">Optimización de Rutas</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Disminuye tiempos de conducción con rutas personalizadas e información de tráfico en tiempo real.</p>
+                <div class="flex flex-col gap-4 flex-1">
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Rutas y Geocercas
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Controle zonas, recorridos y puntos de operación.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Control de Horas de Operación
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Analice tiempos trabajados y actividad vehicular.
+                        </p>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card: Historial de recorridos -->
-            <article class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300">
-                <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300" style="background-color: #0059a6;">
+            <article
+                class="group bg-slate-50 border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 hover:bg-white hover:shadow-lg transition-all duration-300"
+            >
+                <div
+                    class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                    style="background-color: #0059a6;"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3M12 3v9.75"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"></path>
                     </svg>
                 </div>
-                <div class="flex flex-col gap-1.5 flex-1">
-                    <h3 class="text-base font-bold text-slate-900">Historial de Recorridos</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Consulta rutas anteriores, tiempos de parada, kilómetros recorridos y comportamiento del conductor desde APP y PC.</p>
+                <div class="flex flex-col gap-4 flex-1">
+                    <div class="flex flex-col gap-1.5">
+                        <h3 class="text-base font-bold text-slate-900">
+                            Tiempos Logísticos y RNDC
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            Herramientas para empresas de transporte y logística.
+                        </p>
+                    </div>
                 </div>
             </article>
-
         </div>
     </div>
 </section>

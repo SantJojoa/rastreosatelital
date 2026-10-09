@@ -26,18 +26,19 @@ import { SERVICES } from "../data/services";
                 class="text-2xl md:text-3xl xl:text-4xl font-extrabold leading-[1.08] tracking-tight"
             >
                 <span style="color: #0059a6;">
-                    <span id="typewriter-line1">TECNOLOGÍA QUE CONECTA</span>
+                    <span id="hero-line1">Rastreo Satelital GPS y Administración de Flotas</span>
                 </span>
                 <span class="text-slate-900">
-                    <span id="typewriter-line2">CONTROL QUE TRANSFORMA</span>
+                    <span id="typewriter-line2">Controle, monitoree y proteja sus vehículos en tiempo real</span>
                 </span>
             </h1>
 
             <p
                 class="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl"
             >
-                Soluciones de rastreo satelital, monitoreo y seguridad para
-                optimizar la gestión de su flota y lo que más importa.
+                En <strong class="font-extrabold" style="color: #0059a6;">SISTEMAS VIRTUALES GPS</strong> le ofrecemos soluciones de rastreo
+                satelital, telemetría, administración remota de flotas y
+                seguridad vehicular para empresas y propietarios de vehículos.
             </p>
 
             <div class="reveal is-visible" style="transition-delay:300ms">
@@ -138,8 +139,8 @@ import { SERVICES } from "../data/services";
                             Rastreo Vehicular GPS
                         </h3>
                         <p class="text-blue-100 text-xs leading-relaxed line-clamp-2">
-                            Monitorea tu flota en tiempo real, controla rutas y
-                            protege tus vehículos con la plataforma líder en
+                            Monitoree su flota en tiempo real, controle rutas y
+                            proteja sus vehículos con la plataforma líder en
                             rastreo satelital.
                         </p>
                     </div>
@@ -192,7 +193,7 @@ import { SERVICES } from "../data/services";
                             Cámaras de Seguridad
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
-                            Vigilancia inteligente para tu vehículo, negocio o
+                            Vigilancia inteligente para su vehículo, negocio o
                             vivienda con tecnología de última generación.
                         </p>
                     </div>
@@ -245,8 +246,8 @@ import { SERVICES } from "../data/services";
                             Seguros
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
-                            Cotiza pólizas de seguros para tu vehículo y
-                            protege tu inversión ante cualquier eventualidad.
+                            Cotice pólizas de seguros para su vehículo y
+                            proteja su inversión ante cualquier eventualidad.
                         </p>
                     </div>
                     <span
@@ -295,77 +296,19 @@ import { SERVICES } from "../data/services";
 </style>
 
 <script>
-    const el1 = document.getElementById("typewriter-line1")!;
-    const el2 = document.getElementById("typewriter-line2")!;
-
-    const line1 = el1.textContent ?? "";
-    const line2 = el2.textContent ?? "";
+    const el = document.getElementById("typewriter-line2")!;
+    const text = el.textContent ?? "";
 
     let i = 0;
-    el1.textContent = "";
-    el2.textContent = "";
+    el.textContent = "";
 
-    function typeLine1() {
-        if (i <= line1.length) {
-            el1.textContent = line1.slice(0, i);
+    function type() {
+        if (i <= text.length) {
+            el.textContent = text.slice(0, i);
             i++;
-            setTimeout(typeLine1, i < 10 ? 70 : 45);
-        } else {
-            i = 0;
-            setTimeout(typeLine2, 150);
+            setTimeout(type, i < 10 ? 35 : 20);
         }
     }
 
-    function typeLine2() {
-        if (i <= line2.length) {
-            el2.textContent = line2.slice(0, i);
-            i++;
-            setTimeout(typeLine2, i < 10 ? 70 : 45);
-        }
-    }
-
-    typeLine1();
-</script>
-
-<script>
-    const slides = document.querySelectorAll<HTMLAnchorElement>(
-        "#hero-carousel .hero-carousel-slide",
-    );
-    const dots = document.querySelectorAll<HTMLButtonElement>(
-        "#hero-carousel .hero-carousel-dot",
-    );
-    let current = 0;
-    let timer: ReturnType<typeof setInterval>;
-
-    function showSlide(index: number) {
-        slides.forEach((slide, i) => {
-            slide.style.opacity = i === index ? "1" : "0";
-            slide.style.pointerEvents = i === index ? "auto" : "none";
-        });
-        dots.forEach((dot, i) => {
-            dot.style.backgroundColor = `rgba(255,255,255,${i === index ? 1 : 0.4})`;
-        });
-        current = index;
-    }
-
-    function next() {
-        showSlide((current + 1) % slides.length);
-    }
-
-    function restartTimer() {
-        clearInterval(timer);
-        timer = setInterval(next, 3000);
-    }
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener("click", (e) => {
-            e.preventDefault();
-            showSlide(i);
-            restartTimer();
-        });
-    });
-
-    if (slides.length > 1) {
-        restartTimer();
-    }
+    type();
 </script>
