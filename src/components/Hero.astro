@@ -1,5 +1,7 @@
 ---
 import { SERVICES } from "../data/services";
+
+const RADAR_URL = "https://radar.example.com"; // TODO: URL real de Radar
 ---
 
 <section class="relative bg-white overflow-hidden">
@@ -112,7 +114,9 @@ import { SERVICES } from "../data/services";
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
                 <!-- Rastreo Vehicular GPS: highlighted -->
                 <a
-                    href="/planes"
+                    href={RADAR_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="platform-glow group relative rounded-2xl p-3.5 flex flex-col gap-2 overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg"
                     style="background-color: #0059a6;"
                 >
@@ -136,19 +140,19 @@ import { SERVICES } from "../data/services";
                     </div>
                     <div class="flex flex-col gap-1">
                         <h3 class="text-sm font-bold text-white">
-                            Rastreo Vehicular GPS
+                            Ingreso a Radar
                         </h3>
                         <p class="text-blue-100 text-xs leading-relaxed line-clamp-2">
-                            Monitoree su flota en tiempo real, controle rutas y
-                            proteja sus vehículos con la plataforma líder en
-                            rastreo satelital.
+                            Acceda a la plataforma Radar para monitorear su
+                            flota en tiempo real, controlar rutas y proteger
+                            sus vehículos.
                         </p>
                     </div>
                     <span
                         class="mt-auto inline-flex items-center justify-center gap-1 text-xs font-bold px-3.5 py-1.5 rounded-full self-start group-hover:gap-2 transition-all duration-200"
                         style="background-color: #ffd400; color: #003d73;"
                     >
-                        Ver planes
+                        Ingresar
                         <svg
                             class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
                             xmlns="http://www.w3.org/2000/svg"
@@ -190,11 +194,12 @@ import { SERVICES } from "../data/services";
                     </div>
                     <div class="flex flex-col gap-1">
                         <h3 class="text-sm font-bold text-slate-900">
-                            Cámaras de Seguridad
+                            Cámaras vehiculares con IA Dash Cam
                         </h3>
-                        <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
-                            Vigilancia inteligente para su vehículo, negocio o
-                            vivienda con tecnología de última generación.
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Dash Cam y MDVR con GPS: video en tiempo real y
+                            grabaciones desde la web o APP, para mayor
+                            seguridad de conductores, pasajeros y carga.
                         </p>
                     </div>
                     <span
