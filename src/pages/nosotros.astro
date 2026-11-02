@@ -210,6 +210,36 @@ import MainLayout from "../layouts/MainLayout.astro";
         </section>
 
         <!-- ══════════════════════════════════════
+             CUMPLIMIENTO NORMATIVO
+        ══════════════════════════════════════ -->
+        <section class="py-20 md:py-28 bg-white">
+            <div class="container-custom">
+                <div class="max-w-3xl mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4" style="text-wrap: balance;">
+                        Eficiencia Logística con Cumplimiento Normativo
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed" style="text-wrap: pretty;">
+                        SISTEMAS VIRTUALES GPS está validado e integrado con la regulación de cada mercado.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 reveal-stagger">
+                    <article class="rounded-3xl border border-slate-200 p-8 flex flex-col gap-3" style="background-color: var(--surface-tint);">
+                        <span class="text-xs font-bold uppercase tracking-widest" style="color: #0059a6;">Maquinaria amarilla</span>
+                        <p class="text-xl font-extrabold text-slate-900 leading-snug">
+                            Proveedor de servicio de telemetría de Policía Nacional
+                        </p>
+                    </article>
+                    <article class="rounded-3xl bg-[#003d73] p-8 flex flex-col gap-3">
+                        <span class="text-xs font-bold uppercase tracking-widest" style="color: #ffd400;">Transporte de carga</span>
+                        <p class="text-xl font-extrabold text-white leading-snug">
+                            Habilitado como empresa de rastreo GPS Mintransporte
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
              MISIÓN + VISIÓN
         ══════════════════════════════════════ -->
         <section class="py-20 md:py-28" style="background-color: var(--surface-tint);">
@@ -261,17 +291,16 @@ import MainLayout from "../layouts/MainLayout.astro";
                     Hable con nuestro equipo y reciba una solución personalizada para su operación.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <a
-                        href="https://wa.me/573157003022"
-                        target="_blank"
-                        rel="noopener"
+                    <button
+                        type="button"
+                        data-open-demo
                         class="inline-flex items-center gap-2 px-8 py-4 bg-[#ffd400] text-[#003d73] font-bold rounded-full hover:bg-yellow-300 transition-colors duration-200"
                     >
                         Solicitar Demo
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
                         </svg>
-                    </a>
+                    </button>
                     <a
                         href="tel:3157003022"
                         class="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/40 text-white font-bold rounded-full hover:bg-white/10 transition-colors duration-200"

@@ -1,10 +1,18 @@
 ---
 import { SERVICES } from "../data/services";
 
+const RNDC_SLIDE = {
+    image: "/services_images/rdnc.png",
+    title: "ESTAMOS INSCRITOS RNDC",
+    subtitle: "Cumplimos con Tiempos Logísticos sin complicaciones",
+};
+const SLIDE_COUNT = SERVICES.length + 1;
 const RADAR_URL = "https://radar.example.com"; // TODO: URL real de Radar
 ---
 
-<section class="relative bg-white overflow-hidden">
+<section
+    class="relative bg-white overflow-hidden min-h-[calc(100svh-97px)] flex items-center"
+>
     <!-- Decorative background: soft dot grid + blue glow, kept subtle on white -->
     <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none"></div>
     <div
@@ -19,301 +27,503 @@ const RADAR_URL = "https://radar.example.com"; // TODO: URL real de Radar
         style="mask-image: linear-gradient(to right, transparent, black 35%); -webkit-mask-image: linear-gradient(to right, transparent, black 35%);"
     />
 
-    <div class="container-custom relative z-10 pt-8 pb-6 md:pt-10 md:pb-8 lg:pt-8 lg:pb-6">
+    <div
+        class="container-custom relative z-10 w-full pt-8 pb-[4.5rem] md:pt-10 lg:pt-12 lg:pb-[5rem]"
+    >
         <div
-            class="flex flex-col gap-3 reveal is-visible max-w-5xl"
+            class="flex flex-col gap-5 reveal is-visible max-w-5xl"
             style="transition-delay:200ms"
         >
-            <h1
-                class="text-2xl md:text-3xl xl:text-4xl font-extrabold leading-[1.08] tracking-tight"
-            >
-                <span style="color: #0059a6;">
-                    <span id="hero-line1">Rastreo Satelital GPS y Administración de Flotas</span>
-                </span>
-                <span class="text-slate-900">
-                    <span id="typewriter-line2">Controle, monitoree y proteja sus vehículos en tiempo real</span>
-                </span>
-            </h1>
-
-            <p
-                class="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl"
-            >
-                En <strong class="font-extrabold" style="color: #0059a6;">SISTEMAS VIRTUALES GPS</strong> le ofrecemos soluciones de rastreo
-                satelital, telemetría, administración remota de flotas y
-                seguridad vehicular para empresas y propietarios de vehículos.
-            </p>
-
-            <div class="reveal is-visible" style="transition-delay:300ms">
-                <div
-                    id="hero-carousel"
-                    class="relative w-full h-[160px] sm:h-[220px] lg:h-[260px] rounded-2xl overflow-hidden shadow-xl"
+            <div class="flex flex-col gap-3 max-w-3xl">
+                <h1
+                    id="hero-line1"
+                    class="text-2xl md:text-3xl xl:text-4xl font-extrabold leading-[1.1] tracking-tight"
+                    style="color: #0059a6;"
                 >
-                    {
-                        SERVICES.map((service, i) => (
-                            <a
-                                href={`/servicios/${service.slug}`}
+                    Rastreo Satelital GPS,
+                    <span class="text-slate-900"
+                        >Geolocalización de Flotas, de activos y de personal de
+                        campo</span
+                    >
+                </h1>
+
+                <p
+                    class="text-slate-600 text-xs md:text-sm leading-relaxed max-w-2xl"
+                >
+                    Control, monitoreo y protección de sus vehículos con
+                    software de gestión de flotas.
+                </p>
+
+                <p
+                    class="self-start border-l-4 pl-3 py-1 text-[11px] md:text-xs font-bold tracking-wide uppercase text-slate-900"
+                    style="border-color: #ffd400;"
+                >
+                    Toda su flota, sus activos y su personal de campo en una
+                    sola pantalla
+                </p>
+            </div>
+
+                    <div
+                        class="reveal is-visible"
+                        style="transition-delay:300ms"
+                    >
+                        <div
+                            id="hero-carousel"
+                            class="relative w-full select-none touch-pan-y cursor-grab active:cursor-grabbing h-[150px] sm:h-[200px] lg:h-[clamp(180px,26vh,260px)] rounded-2xl overflow-hidden shadow-xl"
+                        >
+                            {
+                                SERVICES.map((service, i) => (
+                                    <a
+                                        href={`/servicios/${service.slug}`}
+                                        class="hero-carousel-slide absolute inset-0 transition-opacity duration-700"
+                                        style={`opacity:${i === 0 ? 1 : 0}`}
+                                        data-index={i}
+                                        draggable="false"
+                                    >
+                                        <img
+                                            src={service.image}
+                                            alt={`${service.title} ${service.subtitle}`}
+                                            draggable="false"
+                                            class="absolute inset-0 w-full h-full object-cover"
+                                        />
+                                        <div
+                                            class="absolute inset-0"
+                                            style="background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0.1) 62%, rgba(0,0,0,0.05) 100%);"
+                                        />
+                                        <div class="relative z-10 h-full flex flex-col justify-center gap-1.5 sm:gap-2 pl-12 pr-4 sm:pl-16 sm:pr-6 lg:pl-20 lg:pr-8 max-w-xl text-white">
+                                            {service.tag && (
+                                                <span
+                                                    class="inline-flex self-start px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-md"
+                                                    style={`background-color: ${service.accent};`}
+                                                >
+                                                    {service.tag}
+                                                </span>
+                                            )}
+                                            <h3 class="text-base sm:text-xl lg:text-2xl font-extrabold leading-tight">
+                                                {service.title}
+                                                <span class="block text-xs sm:text-sm font-semibold opacity-90 mt-0.5">
+                                                    {service.subtitle}
+                                                </span>
+                                            </h3>
+                                            <p class="hidden lg:block text-xs text-white/85 leading-relaxed max-w-md line-clamp-2">
+                                                {service.description}
+                                            </p>
+                                            <span class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm mt-0.5">
+                                                Ver servicio
+                                                <svg
+                                                    class="w-3.5 h-3.5"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                                        clip-rule="evenodd"
+                                                    />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </a>
+                                ))
+                            }
+
+                            <div
                                 class="hero-carousel-slide absolute inset-0 transition-opacity duration-700"
-                                style={`opacity:${i === 0 ? 1 : 0}`}
-                                data-index={i}
+                                style="opacity:0"
+                                data-index={SERVICES.length}
                             >
                                 <img
-                                    src={service.image}
-                                    alt={`${service.title} ${service.subtitle}`}
+                                    src={RNDC_SLIDE.image}
+                                    alt={RNDC_SLIDE.title}
+                                    draggable="false"
                                     class="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div
                                     class="absolute inset-0"
                                     style="background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0.1) 62%, rgba(0,0,0,0.05) 100%);"
                                 />
-                                <div class="relative z-10 h-full flex flex-col justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 lg:px-8 max-w-xl text-white">
-                                    {service.tag && (
-                                        <span
-                                            class="inline-flex self-start px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-md"
-                                            style={`background-color: ${service.accent};`}
-                                        >
-                                            {service.tag}
-                                        </span>
-                                    )}
+                                <div class="relative z-10 h-full flex flex-col justify-center gap-1.5 sm:gap-2 pl-12 pr-4 sm:pl-16 sm:pr-6 lg:pl-20 lg:pr-8 max-w-xl text-white">
                                     <h3 class="text-base sm:text-xl lg:text-2xl font-extrabold leading-tight">
-                                        {service.title}
+                                        {RNDC_SLIDE.title}
                                         <span class="block text-xs sm:text-sm font-semibold opacity-90 mt-0.5">
-                                            {service.subtitle}
+                                            {RNDC_SLIDE.subtitle}
                                         </span>
                                     </h3>
-                                    <p class="hidden lg:block text-xs text-white/85 leading-relaxed max-w-md line-clamp-2">
-                                        {service.description}
-                                    </p>
-                                    <span class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm mt-0.5">
-                                        Ver servicio
-                                        <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
                                 </div>
-                            </a>
-                        ))
-                    }
+                            </div>
 
-                    <div class="absolute bottom-2 sm:bottom-3 inset-x-0 z-10 flex justify-center gap-1.5">
-                        {
-                            SERVICES.map((_, i) => (
-                                <button
-                                    type="button"
-                                    class="hero-carousel-dot w-1.5 h-1.5 rounded-full transition-colors duration-200"
-                                    style={`background-color: rgba(255,255,255,${i === 0 ? 1 : 0.4});`}
-                                    data-index={i}
-                                    aria-label={`Ver servicio ${i + 1}`}
-                                />
-                            ))
-                        }
+                            <button
+                                type="button"
+                                class="hero-carousel-prev absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors"
+                                aria-label="Servicio anterior"
+                            >
+                                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L9.06 10l3.71 3.71a.75.75 0 11-1.06 1.06l-4.25-4.25a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.08.02z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <button
+                                type="button"
+                                class="hero-carousel-next absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm transition-colors"
+                                aria-label="Servicio siguiente"
+                            >
+                                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 111.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.08-.02z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div
+                                class="absolute bottom-2 sm:bottom-3 inset-x-0 z-20 flex justify-center gap-1.5"
+                            >
+                                {
+                                    Array.from({ length: SLIDE_COUNT }, (_, i) => (
+                                        <button
+                                            type="button"
+                                            class="hero-carousel-dot w-1.5 h-1.5 rounded-full transition-colors duration-200"
+                                            style={`background-color: rgba(255,255,255,${i === 0 ? 1 : 0.4});`}
+                                            data-index={i}
+                                            aria-label={`Ver servicio ${i + 1}`}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Three main CTA cards -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
-                <!-- Rastreo Vehicular GPS: highlighted -->
-                <a
-                    href={RADAR_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="platform-glow group relative rounded-2xl p-3.5 flex flex-col gap-2 overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg"
-                    style="background-color: #0059a6;"
-                >
+                    <!-- Three main CTA cards -->
                     <div
-                        class="w-8 h-8 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch"
                     >
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            aria-hidden="true"
+                        <!-- Rastreo Vehicular GPS: highlighted -->
+                        <a
+                            href={RADAR_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="platform-glow radar-shine group relative rounded-2xl p-3.5 flex flex-col gap-2 overflow-hidden transition-transform duration-300 hover:-translate-y-1 shadow-lg"
+                            style="background-color: #0059a6;"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                            ></path>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col gap-1">
-                        <h3 class="text-sm font-bold text-white">
-                            Ingreso a Radar
-                        </h3>
-                        <p class="text-blue-100 text-xs leading-relaxed line-clamp-2">
-                            Acceda a la plataforma Radar para monitorear su
-                            flota en tiempo real, controlar rutas y proteger
-                            sus vehículos.
-                        </p>
-                    </div>
-                    <span
-                        class="mt-auto inline-flex items-center justify-center gap-1 text-xs font-bold px-3.5 py-1.5 rounded-full self-start group-hover:gap-2 transition-all duration-200"
-                        style="background-color: #ffd400; color: #003d73;"
-                    >
-                        Ingresar
-                        <svg
-                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </span>
-                </a>
+                            <div
+                                class="w-8 h-8 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-sm font-bold text-white">
+                                    Ingreso a RADAR
+                                </h3>
+                                <p
+                                    class="text-blue-100 text-xs leading-relaxed"
+                                >
+                                    Accede a RADAR si tu servicio de rastreo GPS
+                                    está registrado en este sistema.
+                                </p>
+                            </div>
+                            <span
+                                class="radar-cta mt-auto inline-flex items-center justify-center gap-1 text-xs font-bold px-3.5 py-1.5 rounded-full self-start group-hover:gap-2 transition-all duration-200"
+                                style="background-color: #ffd400; color: #003d73;"
+                            >
+                                Ingresar
+                                <svg
+                                    class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </a>
 
-                <!-- Cámaras de Seguridad -->
-                <a
-                    href="/camaras"
-                    class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
-                    style="background-color: var(--surface-tint);"
-                >
-                    <div
-                        class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                        style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
-                    >
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            aria-hidden="true"
+                        <!-- Cámaras de Seguridad -->
+                        <a
+                            href="/camaras"
+                            class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
+                            style="background-color: var(--surface-tint);"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
-                            ></path>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col gap-1">
-                        <h3 class="text-sm font-bold text-slate-900">
-                            Cámaras vehiculares con IA Dash Cam
-                        </h3>
-                        <p class="text-slate-500 text-xs leading-relaxed">
-                            Dash Cam y MDVR con GPS: video en tiempo real y
-                            grabaciones desde la web o APP, para mayor
-                            seguridad de conductores, pasajeros y carga.
-                        </p>
-                    </div>
-                    <span
-                        class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
-                        style="color: #0059a6;"
-                    >
-                        Conocer más
-                        <svg
-                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </span>
-                </a>
+                            <div
+                                class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-sm font-bold text-slate-900">
+                                    Cámaras vehiculares con IA Dash Cam
+                                </h3>
+                                <p
+                                    class="text-slate-500 text-xs leading-relaxed"
+                                >
+                                    Dash Cam y MDVR con GPS: video en tiempo
+                                    real y grabaciones desde la web o APP, para
+                                    mayor seguridad de conductores, pasajeros y
+                                    carga.
+                                </p>
+                            </div>
+                            <span
+                                class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
+                                style="color: #0059a6;"
+                            >
+                                Conocer más
+                                <svg
+                                    class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </a>
 
-                <!-- Seguros -->
-                <a
-                    href="/seguros"
-                    class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
-                    style="background-color: var(--surface-tint);"
-                >
-                    <div
-                        class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                        style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
-                    >
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            aria-hidden="true"
+                        <!-- Seguros -->
+                        <a
+                            href="/seguros"
+                            class="group relative rounded-2xl p-3.5 flex flex-col gap-2 border-2 border-[rgba(0,89,166,0.14)] hover:border-[rgba(0,89,166,0.4)] hover:shadow-lg transition-all duration-300"
+                            style="background-color: var(--surface-tint);"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M12 3l7.5 3v5.25c0 4.9-3.2 8.99-7.5 10.5-4.3-1.51-7.5-5.6-7.5-10.5V6l7.5-3z"
-                            ></path>
-                        </svg>
+                            <div
+                                class="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                style="background-color: rgba(0,89,166,0.08); color: #0059a6;"
+                            >
+                                <svg
+                                    class="w-4 h-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 3l7.5 3v5.25c0 4.9-3.2 8.99-7.5 10.5-4.3-1.51-7.5-5.6-7.5-10.5V6l7.5-3z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-sm font-bold text-slate-900">
+                                    Seguros
+                                </h3>
+                                <p
+                                    class="text-slate-500 text-xs leading-relaxed line-clamp-2"
+                                >
+                                    Cotice pólizas de seguros para su vehículo y
+                                    proteja su inversión ante cualquier
+                                    eventualidad.
+                                </p>
+                            </div>
+                            <span
+                                class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
+                                style="color: #0059a6;"
+                            >
+                                Conocer más
+                                <svg
+                                    class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </a>
                     </div>
-                    <div class="flex flex-col gap-1">
-                        <h3 class="text-sm font-bold text-slate-900">
-                            Seguros
-                        </h3>
-                        <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">
-                            Cotice pólizas de seguros para su vehículo y
-                            proteja su inversión ante cualquier eventualidad.
-                        </p>
-                    </div>
-                    <span
-                        class="mt-auto inline-flex items-center gap-1 text-xs font-semibold"
-                        style="color: #0059a6;"
-                    >
-                        Conocer más
-                        <svg
-                            class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </span>
-                </a>
-            </div>
         </div>
+
+        <style>
+            .platform-glow {
+                animation: glow-pulse 2.4s ease-in-out infinite;
+            }
+
+            @keyframes glow-pulse {
+                0%,
+                100% {
+                    box-shadow: 0 20px 40px -12px rgba(0, 89, 166, 0.35);
+                }
+                50% {
+                    box-shadow: 0 20px 46px -10px rgba(0, 89, 166, 0.6);
+                }
+            }
+
+            .radar-shine::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    110deg,
+                    transparent 35%,
+                    rgba(255, 255, 255, 0.22) 50%,
+                    transparent 65%
+                );
+                transform: translateX(-100%);
+                animation: radar-sweep 3.6s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            @keyframes radar-sweep {
+                0%,
+                55% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+
+            .radar-cta {
+                animation: radar-cta-pulse 1.8s ease-in-out infinite;
+            }
+
+            @keyframes radar-cta-pulse {
+                0%,
+                100% {
+                    box-shadow: 0 0 0 0 rgba(255, 212, 0, 0.7);
+                }
+                50% {
+                    box-shadow: 0 0 0 8px rgba(255, 212, 0, 0);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .platform-glow,
+                .radar-shine::after,
+                .radar-cta {
+                    animation: none;
+                }
+            }
+        </style>
+
+        <script>
+            const carousel = document.getElementById("hero-carousel");
+            const slides = carousel?.querySelectorAll<HTMLElement>(
+                ".hero-carousel-slide",
+            );
+            const dots = carousel?.querySelectorAll<HTMLElement>(
+                ".hero-carousel-dot",
+            );
+
+            if (carousel && slides && dots && slides.length > 1) {
+                let current = 0;
+                let timer: number | undefined;
+
+                const show = (index: number) => {
+                    current = (index + slides.length) % slides.length;
+                    slides.forEach((slide, i) => {
+                        slide.style.opacity = i === current ? "1" : "0";
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.style.backgroundColor = `rgba(255,255,255,${i === current ? 1 : 0.4})`;
+                    });
+                };
+
+                const start = () => {
+                    stop();
+                    timer = window.setInterval(() => show(current + 1), 5000);
+                };
+                const stop = () => window.clearInterval(timer);
+
+                dots.forEach((dot, i) =>
+                    dot.addEventListener("click", () => {
+                        show(i);
+                        start();
+                    }),
+                );
+
+                carousel
+                    .querySelector(".hero-carousel-prev")
+                    ?.addEventListener("click", () => {
+                        show(current - 1);
+                        start();
+                    });
+                carousel
+                    .querySelector(".hero-carousel-next")
+                    ?.addEventListener("click", () => {
+                        show(current + 1);
+                        start();
+                    });
+
+                // Drag / swipe: a horizontal move past the threshold changes slide
+                // and swallows the click so the slide link doesn't navigate.
+                const SWIPE_THRESHOLD = 40;
+                let startX = 0;
+                let dragging = false;
+                let moved = false;
+
+                carousel.addEventListener("pointerdown", (e) => {
+                    if ((e.target as HTMLElement).closest("button")) return;
+                    dragging = true;
+                    moved = false;
+                    startX = e.clientX;
+                });
+                carousel.addEventListener("pointermove", (e) => {
+                    if (dragging && Math.abs(e.clientX - startX) > 5) moved = true;
+                });
+                const endDrag = (e: PointerEvent) => {
+                    if (!dragging) return;
+                    dragging = false;
+                    const dx = e.clientX - startX;
+                    if (Math.abs(dx) > SWIPE_THRESHOLD) {
+                        show(dx < 0 ? current + 1 : current - 1);
+                        start();
+                    }
+                };
+                carousel.addEventListener("pointerup", endDrag);
+                carousel.addEventListener("pointercancel", endDrag);
+                carousel.addEventListener(
+                    "click",
+                    (e) => {
+                        if (moved) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            moved = false;
+                        }
+                    },
+                    true,
+                );
+
+                carousel.addEventListener("mouseenter", stop);
+                carousel.addEventListener("mouseleave", start);
+
+                if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                    start();
+                }
+            }
+        </script>
+
     </div>
 </section>
-
-<style>
-    .platform-glow {
-        animation: glow-pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes glow-pulse {
-        0%,
-        100% {
-            box-shadow: 0 20px 40px -12px rgba(0, 89, 166, 0.35);
-        }
-        50% {
-            box-shadow: 0 20px 46px -10px rgba(0, 89, 166, 0.6);
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .platform-glow {
-            animation: none;
-        }
-    }
-</style>
-
-<script>
-    const el = document.getElementById("typewriter-line2")!;
-    const text = el.textContent ?? "";
-
-    let i = 0;
-    el.textContent = "";
-
-    function type() {
-        if (i <= text.length) {
-            el.textContent = text.slice(0, i);
-            i++;
-            setTimeout(type, i < 10 ? 35 : 20);
-        }
-    }
-
-    type();
-</script>

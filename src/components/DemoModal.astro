@@ -1,0 +1,167 @@
+---
+import { WHATSAPP_NUMBER, DEMO_FORM_ENDPOINT } from "../data/contact";
+
+const fields = [
+    { name: "nombres", label: "Nombres", type: "text", autocomplete: "given-name" },
+    { name: "apellidos", label: "Apellidos", type: "text", autocomplete: "family-name" },
+    { name: "correo", label: "Correo electrónico", type: "email", autocomplete: "email" },
+    { name: "celular", label: "Número de celular", type: "tel", autocomplete: "tel" },
+    { name: "pais", label: "País", type: "text", autocomplete: "country-name" },
+    { name: "empresa", label: "Empresa", type: "text", autocomplete: "organization" },
+];
+const inputClass =
+    "w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0059a6] focus:ring-2 focus:ring-[#0059a6]/20";
+---
+
+<dialog
+    id="demo-modal"
+    class="demo-modal m-auto w-[calc(100%-2rem)] max-w-2xl rounded-3xl p-0 shadow-2xl"
+    data-endpoint={DEMO_FORM_ENDPOINT}
+    data-whatsapp={WHATSAPP_NUMBER}
+    aria-labelledby="demo-title"
+>
+    <form id="demo-form" class="flex flex-col gap-5 p-6 sm:p-8" novalidate>
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h2 id="demo-title" class="text-2xl font-extrabold text-slate-900 tracking-tight">
+                    Solicitar demo
+                </h2>
+                <p class="text-sm text-slate-500 mt-1">
+                    Déjenos sus datos y un asesor se comunicará con usted.
+                </p>
+            </div>
+            <button
+                type="button"
+                id="demo-close"
+                aria-label="Cerrar formulario"
+                class="w-9 h-9 shrink-0 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors"
+            >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <input type="hidden" name="servicio" id="demo-service" value="" />
+
+        <div class="grid sm:grid-cols-2 gap-4">
+            {
+                fields.map((f) => (
+                    <label class="flex flex-col gap-1.5 text-sm font-semibold text-slate-700">
+                        {f.label}
+                        <input
+                            class={inputClass}
+                            type={f.type}
+                            name={f.name}
+                            autocomplete={f.autocomplete}
+                            required
+                        />
+                    </label>
+                ))
+            }
+            <label class="flex flex-col gap-1.5 text-sm font-semibold text-slate-700">
+                Sitio web de la empresa
+                <input class={inputClass} type="url" name="sitio_web" placeholder="https://" autocomplete="url" />
+            </label>
+            <label class="flex flex-col gap-1.5 text-sm font-semibold text-slate-700">
+                Número de vehículos
+                <input class={inputClass} type="number" name="vehiculos" min="1" inputmode="numeric" required />
+            </label>
+        </div>
+
+        <label class="flex flex-col gap-1.5 text-sm font-semibold text-slate-700">
+            Mensaje
+            <textarea class={inputClass} name="mensaje" rows="3"></textarea>
+        </label>
+
+        <p id="demo-status" class="text-sm font-semibold hidden" role="status"></p>
+
+        <button
+            type="submit"
+            id="demo-submit"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold bg-[#0059a6] text-white hover:bg-[#004a8c] disabled:opacity-60 transition-colors duration-150"
+        >
+            Enviar
+        </button>
+    </form>
+</dialog>
+
+<style>
+    .demo-modal::backdrop {
+        background: rgba(2, 6, 23, 0.6);
+        backdrop-filter: blur(2px);
+    }
+</style>
+
+<script>
+    const modal = document.getElementById("demo-modal") as HTMLDialogElement | null;
+    const form = document.getElementById("demo-form") as HTMLFormElement | null;
+    const status = document.getElementById("demo-status");
+    const submit = document.getElementById("demo-submit") as HTMLButtonElement | null;
+    const serviceInput = document.getElementById("demo-service") as HTMLInputElement | null;
+
+    function setStatus(message: string, ok: boolean) {
+        if (!status) return;
+        status.textContent = message;
+        status.classList.remove("hidden", "text-green-600", "text-red-600");
+        status.classList.add(ok ? "text-green-600" : "text-red-600");
+    }
+
+    if (modal && form) {
+        document.querySelectorAll<HTMLElement>("[data-open-demo]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                if (serviceInput) serviceInput.value = btn.dataset.service ?? "";
+                status?.classList.add("hidden");
+                modal.showModal();
+            });
+        });
+
+        document.getElementById("demo-close")?.addEventListener("click", () => modal.close());
+        // Click on the backdrop (outside the form) closes the dialog
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.close();
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            if (!form.reportValidity()) return;
+
+            const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+            const endpoint = modal.dataset.endpoint;
+
+            if (!endpoint) {
+                const lines = [
+                    ["Servicio", data.servicio],
+                    ["Nombres", data.nombres],
+                    ["Apellidos", data.apellidos],
+                    ["Correo", data.correo],
+                    ["Celular", data.celular],
+                    ["País", data.pais],
+                    ["Empresa", data.empresa],
+                    ["Sitio web", data.sitio_web],
+                    ["Número de vehículos", data.vehiculos],
+                    ["Mensaje", data.mensaje],
+                ].map(([k, v]) => `${k}: ${v ?? ""}`);
+                const text = `Hola, quiero solicitar una demo.\n\n${lines.join("\n")}`;
+                window.open(`https://wa.me/${modal.dataset.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+                form.reset();
+                modal.close();
+                return;
+            }
+
+            if (submit) submit.disabled = true;
+            try {
+                const res = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", Accept: "application/json" },
+                    body: JSON.stringify(data),
+                });
+                if (!res.ok) throw new Error(String(res.status));
+                form.reset();
+                setStatus("¡Gracias! Recibimos su solicitud y nos pondremos en contacto pronto.", true);
+            } catch {
+                setStatus("No pudimos enviar la solicitud. Inténtelo de nuevo o escríbanos por WhatsApp.", false);
+            } finally {
+                if (submit) submit.disabled = false;
+            }
+        });
+    }
+</script>
