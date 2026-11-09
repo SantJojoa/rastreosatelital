@@ -34,8 +34,19 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
                     class="nav-link group flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer"
                 >
                     Servicios
-                    <svg id="services-chevron" class="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0059a6] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    <svg
+                        id="services-chevron"
+                        class="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0059a6] transition-transform duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
                 </button>
 
@@ -45,28 +56,64 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
                     role="menu"
                     class="absolute left-0 top-[calc(100%+12px)] w-72 bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/60 py-2 opacity-0 pointer-events-none transition-all duration-150 origin-top"
                 >
-                    <div class="absolute -top-1.5 left-6 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45"></div>
+                    <div
+                        class="absolute -top-1.5 left-6 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45"
+                    >
+                    </div>
 
-                    {[
-                        { label: "Vehículos Particulares y Motocicletas", slug: "vehiculos-particulares", icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" },
-                        { label: "Transporte de Pasajeros", slug: "transporte-de-pasajeros", icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
-                        { label: "Transporte de Hidrocarburos", slug: "transporte-de-hidrocarburos", icon: "M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" },
-                        { label: "Maquinaria Amarilla", slug: "maquinaria-amarilla", icon: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" },
-                        { label: "Transporte de Carga", slug: "transporte-de-carga", icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" },
-                    ].map((item) => (
-                        <a
-                            href={`/servicios/${item.slug}`}
-                            role="menuitem"
-                            class="flex items-center gap-3 px-4 py-2.5 mx-1 rounded-xl text-sm text-slate-700 hover:bg-blue-50 hover:text-[#0059a6] transition-colors duration-150 group"
-                        >
-                            <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors duration-150">
-                                <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-[#0059a6]" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
-                                </svg>
-                            </span>
-                            {item.label}
-                        </a>
-                    ))}
+                    {
+                        [
+                            {
+                                label: "Vehículos Particulares y Motocicletas",
+                                slug: "vehiculos-particulares",
+                                icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12",
+                            },
+                            {
+                                label: "Transporte de Pasajeros",
+                                slug: "transporte-de-pasajeros",
+                                icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+                            },
+                            {
+                                label: "Transporte de Hidrocarburos",
+                                slug: "transporte-de-hidrocarburos",
+                                icon: "M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z",
+                            },
+                            {
+                                label: "Maquinaria Amarilla",
+                                slug: "maquinaria-amarilla",
+                                icon: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z",
+                            },
+                            {
+                                label: "Transporte de Carga",
+                                slug: "transporte-de-carga",
+                                icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12",
+                            },
+                        ].map((item) => (
+                            <a
+                                href={`/servicios/${item.slug}`}
+                                role="menuitem"
+                                class="flex items-center gap-3 px-4 py-2.5 mx-1 rounded-xl text-sm text-slate-700 hover:bg-blue-50 hover:text-[#0059a6] transition-colors duration-150 group"
+                            >
+                                <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors duration-150">
+                                    <svg
+                                        class="w-3.5 h-3.5 text-slate-500 group-hover:text-[#0059a6]"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d={item.icon}
+                                        />
+                                    </svg>
+                                </span>
+                                {item.label}
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
 
@@ -77,10 +124,23 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
                 rel="noopener noreferrer"
                 class="platform-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap"
             >
-                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" /></svg>
+                <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    ></path></svg
+                >
                 <span class="flex flex-col items-start leading-tight text-left">
-                    <span class="text-sm font-extrabold">Ingreso Sistemas Virtuales</span>
-                    <span class="text-[10px] font-semibold uppercase tracking-wide opacity-80">Plataforma principal de rastreo</span>
+                    <span class="text-sm font-extrabold"
+                        >Ingreso a Plataforma de Rastreo</span
+                    >
                 </span>
             </a>
         </nav>
@@ -92,9 +152,15 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
             aria-label="Abrir menú"
             aria-expanded="false"
         >
-            <span class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300" style="background-color: #0059a6;"></span>
-            <span class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300" style="background-color: #0059a6;"></span>
-            <span class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300" style="background-color: #0059a6;"></span>
+            <span
+                class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300"
+                style="background-color: #0059a6;"></span>
+            <span
+                class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300"
+                style="background-color: #0059a6;"></span>
+            <span
+                class="hamburger-bar block w-5 h-0.5 rounded-full transition-all duration-300"
+                style="background-color: #0059a6;"></span>
         </button>
     </div>
 
@@ -105,7 +171,6 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
         aria-hidden="true"
     >
         <nav class="px-6 pb-6 pt-2 flex flex-col gap-1">
-
             <a href="/" class="mobile-nav-link">Inicio</a>
 
             <!-- Servicios accordion -->
@@ -115,26 +180,56 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
                     class="mobile-nav-link w-full text-left flex items-center justify-between"
                 >
                     Servicios
-                    <svg id="mobile-services-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    <svg
+                        id="mobile-services-chevron"
+                        class="w-4 h-4 text-slate-400 transition-transform duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2.5"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
                 </button>
-                <div id="mobile-services-sub" class="max-h-0 overflow-hidden transition-all duration-300">
+                <div
+                    id="mobile-services-sub"
+                    class="max-h-0 overflow-hidden transition-all duration-300"
+                >
                     <div class="pl-4 pt-1 pb-2 flex flex-col gap-1">
-                        {[
-                            { label: "Vehículos Particulares y Motocicletas", slug: "vehiculos-particulares" },
-                            { label: "Transporte de Pasajeros", slug: "transporte-de-pasajeros" },
-                            { label: "Transporte de Hidrocarburos", slug: "transporte-de-hidrocarburos" },
-                            { label: "Maquinaria Amarilla", slug: "maquinaria-amarilla" },
-                            { label: "Transporte de Carga", slug: "transporte-de-carga" },
-                        ].map((item) => (
-                            <a
-                                href={`/servicios/${item.slug}`}
-                                class="text-slate-500 hover:text-[#0059a6] text-sm py-2 px-3 rounded-xl hover:bg-slate-50 transition-colors duration-150"
-                            >
-                                {item.label}
-                            </a>
-                        ))}
+                        {
+                            [
+                                {
+                                    label: "Vehículos Particulares y Motocicletas",
+                                    slug: "vehiculos-particulares",
+                                },
+                                {
+                                    label: "Transporte de Pasajeros",
+                                    slug: "transporte-de-pasajeros",
+                                },
+                                {
+                                    label: "Transporte de Hidrocarburos",
+                                    slug: "transporte-de-hidrocarburos",
+                                },
+                                {
+                                    label: "Maquinaria Amarilla",
+                                    slug: "maquinaria-amarilla",
+                                },
+                                {
+                                    label: "Transporte de Carga",
+                                    slug: "transporte-de-carga",
+                                },
+                            ].map((item) => (
+                                <a
+                                    href={`/servicios/${item.slug}`}
+                                    class="text-slate-500 hover:text-[#0059a6] text-sm py-2 px-3 rounded-xl hover:bg-slate-50 transition-colors duration-150"
+                                >
+                                    {item.label}
+                                </a>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
@@ -146,13 +241,29 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
                 rel="noopener noreferrer"
                 class="platform-btn mt-2 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold"
             >
-                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" /></svg>
+                <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    ></path></svg
+                >
                 <span class="flex flex-col items-start leading-tight text-left">
-                    <span class="text-sm font-extrabold">Ingreso Sistemas Virtuales</span>
-                    <span class="text-[10px] font-semibold uppercase tracking-wide opacity-80">Plataforma principal de rastreo</span>
+                    <span class="text-sm font-extrabold"
+                        >Ingreso Sistemas Virtuales</span
+                    >
+                    <span
+                        class="text-[10px] font-semibold uppercase tracking-wide opacity-80"
+                        >Plataforma principal de rastreo</span
+                    >
                 </span>
             </a>
-
         </nav>
     </div>
 </header>
@@ -162,7 +273,10 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
         background: linear-gradient(135deg, #ffd400, #ffe44d);
         color: #003d73;
         box-shadow: 0 6px 16px -4px rgba(255, 212, 0, 0.6);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            filter 0.2s ease;
     }
 
     .platform-btn {
@@ -170,12 +284,23 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
     }
 
     @keyframes platform-glow {
-        0%, 100% { box-shadow: 0 6px 16px -4px rgba(255, 212, 0, 0.6), 0 0 0 0 rgba(255, 212, 0, 0.6); }
-        50% { box-shadow: 0 6px 16px -4px rgba(255, 212, 0, 0.6), 0 0 0 7px rgba(255, 212, 0, 0); }
+        0%,
+        100% {
+            box-shadow:
+                0 6px 16px -4px rgba(255, 212, 0, 0.6),
+                0 0 0 0 rgba(255, 212, 0, 0.6);
+        }
+        50% {
+            box-shadow:
+                0 6px 16px -4px rgba(255, 212, 0, 0.6),
+                0 0 0 7px rgba(255, 212, 0, 0);
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .platform-btn { animation: none; }
+        .platform-btn {
+            animation: none;
+        }
     }
 
     .platform-btn:hover {
@@ -232,7 +357,9 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
 
     #services-dropdown {
         transform: translateY(-6px);
-        transition: opacity 150ms ease, transform 150ms ease;
+        transition:
+            opacity 150ms ease,
+            transform 150ms ease;
     }
 
     #services-dropdown::before {
@@ -262,7 +389,9 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
         padding: 0.625rem 0.75rem;
         border-radius: 0.75rem;
         text-decoration: none;
-        transition: background-color 0.15s ease, color 0.15s ease;
+        transition:
+            background-color 0.15s ease,
+            color 0.15s ease;
         border-bottom: 2px solid transparent;
     }
 
@@ -292,8 +421,8 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
 
 <script>
     /* ── Scroll shrink ─────────────────────────────────────────────────────── */
-    const inner  = document.getElementById("header-inner");
-    const logo   = document.getElementById("header-logo");
+    const inner = document.getElementById("header-inner");
+    const logo = document.getElementById("header-logo");
 
     function onScroll() {
         const scrolled = window.scrollY > 20;
@@ -307,10 +436,10 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
     onScroll();
 
     /* ── Services dropdown ─────────────────────────────────────────────────── */
-    const menu     = document.getElementById("services-menu");
-    const trigger  = document.getElementById("services-trigger");
+    const menu = document.getElementById("services-menu");
+    const trigger = document.getElementById("services-trigger");
     const dropdown = document.getElementById("services-dropdown");
-    const chevron  = document.getElementById("services-chevron");
+    const chevron = document.getElementById("services-chevron");
 
     function openDropdown() {
         dropdown?.classList.add("open");
@@ -351,11 +480,13 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
     });
 
     /* ── Mobile menu ───────────────────────────────────────────────────────── */
-    const mobileBtn  = document.getElementById("mobile-menu-btn");
+    const mobileBtn = document.getElementById("mobile-menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
-    const mobileServiceBtn     = document.getElementById("mobile-services-btn");
-    const mobileServicesSub    = document.getElementById("mobile-services-sub");
-    const mobileServicesChevron = document.getElementById("mobile-services-chevron");
+    const mobileServiceBtn = document.getElementById("mobile-services-btn");
+    const mobileServicesSub = document.getElementById("mobile-services-sub");
+    const mobileServicesChevron = document.getElementById(
+        "mobile-services-chevron",
+    );
 
     let mobileOpen = false;
     let mobileServicesOpen = false;
@@ -385,7 +516,8 @@ const PLATFORM_URL = "https://plataforma.example.com"; // TODO: URL real de la p
     mobileServiceBtn?.addEventListener("click", () => {
         mobileServicesOpen = !mobileServicesOpen;
         if (mobileServicesOpen) {
-            mobileServicesSub!.style.maxHeight = mobileServicesSub!.scrollHeight + "px";
+            mobileServicesSub!.style.maxHeight =
+                mobileServicesSub!.scrollHeight + "px";
             mobileServicesChevron!.classList.add("open");
         } else {
             mobileServicesSub!.style.maxHeight = "0";
