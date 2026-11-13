@@ -39,72 +39,7 @@ import { PLANS } from "../data/services";
         <!-- Soluciones para cada sector -->
         <Services />
 
-        <!-- Plans section (reuse component but inline so plans are at top) -->
-        <section id="planes" class="py-20 md:py-28" style="background-color: var(--surface-tint);">
-            <div class="container-custom">
-                <div class="max-w-xl mb-12 reveal">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Elija su plan</h2>
-                    <p class="text-slate-500">Precios según el tamaño de su flota. Todos incluyen instalación profesional y soporte técnico 24/7.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-5 items-start max-w-5xl mx-auto reveal-stagger">
-                    {PLANS.map((plan) => (
-                        <article class={`relative flex flex-col gap-5 rounded-3xl p-8 border-2 transition-all duration-200 ${
-                            plan.highlighted
-                                ? "bg-white shadow-xl md:-mt-4 md:mb-4"
-                                : "bg-white border-slate-200 hover:border-[#0059a6]/40 hover:shadow-lg"
-                        }`} style={plan.highlighted ? "border-color: #0059a6; box-shadow: 0 20px 40px -12px rgba(0,89,166,0.25);" : ""}>
-                            {plan.highlighted && (
-                                <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#ffd400] text-[#003d73] text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap shadow">
-                                    ★ Recomendado
-                                </span>
-                            )}
 
-                            <div>
-                                <h3 class="text-xl font-extrabold tracking-tight text-slate-900">
-                                    {plan.name}
-                                </h3>
-                                <p class="text-sm mt-1.5 leading-relaxed text-slate-500">
-                                    {plan.description}
-                                </p>
-                            </div>
-
-                            <div class="h-px bg-slate-100"></div>
-
-                            <ul class="flex flex-col gap-2.5 flex-1">
-                                {plan.features.map((feature) => (
-                                    <li class="flex items-start gap-2.5 text-sm text-slate-600">
-                                        <svg class="w-4 h-4 shrink-0 mt-0.5 text-[#0059a6]" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <a
-                                href="https://wa.me/573157003022"
-                                target="_blank"
-                                rel="noopener"
-                                class={`mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold transition-all duration-150 ${
-                                    plan.highlighted
-                                        ? "bg-[#ffd400] text-[#003d73] hover:bg-yellow-300"
-                                        : "bg-[#0059a6] text-white hover:bg-[#004a8c]"
-                                }`}
-                            >
-                                Consultar precio
-                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
-                                </svg>
-                            </a>
-                        </article>
-                    ))}
-                </div>
-
-                <p class="text-center text-slate-400 text-sm mt-8">
-                    ¿Tiene una flota grande? <a href="https://wa.me/573157003022" target="_blank" rel="noopener" class="text-[#0059a6] font-semibold hover:underline">Solicite una cotización personalizada →</a>
-                </p>
-            </div>
-        </section>
 
         <!-- What's included -->
         <section class="py-20 bg-white">
@@ -142,15 +77,14 @@ import { PLANS } from "../data/services";
         <!-- CTA -->
         <section class="py-16 border-t border-[rgba(0,89,166,0.08)]" style="background-color: var(--surface-tint);">
             <div class="container-custom text-center reveal">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">¿Tienes dudas sobre qué plan elegir?</h2>
-                <p class="text-slate-500 mb-7 max-w-md mx-auto">Nuestro equipo le asesora sin costo y le recomienda el plan ideal para su flota.</p>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">Recibe asesoría aquí</h2>
                 <a
                     href="https://wa.me/573157003022"
                     target="_blank"
                     rel="noopener"
                     class="inline-flex items-center gap-2 px-8 py-4 bg-[#0059a6] text-white font-bold rounded-full hover:bg-[#004a8c] transition-colors duration-200"
                 >
-                    Asesoría gratuita por WhatsApp
+                    Asesoría por WhatsApp
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
                     </svg>
